@@ -1,10 +1,12 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <Navbar />
+      </main>
       <footer className={styles.footer}></footer>
     </div>
   );
