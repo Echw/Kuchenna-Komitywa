@@ -21,7 +21,7 @@ const theme = createTheme({
       "#9cb167",
       "#96ac5c",
       "#81964c",
-      "#728641",
+      "#31582B",
       "#132B13",
     ],
   },
@@ -34,7 +34,12 @@ const theme = createTheme({
   headings: {
     fontFamily: "Roboto, sans-serif",
     sizes: {
-      h1: { fontSize: rem(36) },
+      h1: {
+        fontSize: rem(120),
+      },
+      h2: {
+        fontSize: rem(78),
+      },
     },
   },
 });

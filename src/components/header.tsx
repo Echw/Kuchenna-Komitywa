@@ -3,7 +3,9 @@
 import React, { useState } from "react";
 
 import Image from "next/image";
-import { Container, Group } from "@mantine/core";
+import { Container, Group, Burger } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+
 import classes from "./header.module.css";
 
 export function Logo() {
@@ -19,7 +21,8 @@ const links = [
 ];
 
 export function Header() {
-  const [active, setActive] = useState(links[0].link);
+  const [opened, { toggle }] = useDisclosure(false);
+  const [active, setActive] = useState<string | null>();
 
   const items = links.map((link) => (
     <a
@@ -40,9 +43,11 @@ export function Header() {
     <header className={classes.header}>
       <Container size="xxl" className={classes.inner}>
         <Logo />
-        <Group gap={5} visibleFrom="xs">
+        <Group gap={20} visibleFrom="xs">
           {items}
         </Group>
+
+        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
       </Container>
     </header>
   );

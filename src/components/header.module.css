@@ -1,6 +1,5 @@
 .header {
   height: rem(56px);
-  margin-bottom: rem(120px);
   background-color: var(--mantine-color-body);
 }
 
@@ -20,6 +19,7 @@
   color: var(--mantine-color-white);
   font-size: var(--mantine-font-size-sm);
   font-weight: 600;
+  transition: all 0.4s ease-in-out;
 
   @mixin hover {
     box-shadow: inset 0px -1px 0px 0px var(--mantine-color-mainGreen-9);

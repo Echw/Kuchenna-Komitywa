@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap");
+
 :root {
   --mantine-color-body: var(--mantine-color-mainGreen-6) !important;
+  --hero-header: "Gasoek One", sans-serif;
 }
 
 html,
