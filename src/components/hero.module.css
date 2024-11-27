@@ -1,6 +1,5 @@
 .hero {
   position: relative;
-  /* background-image: url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80); */
   background-size: cover;
   background-position: center;
 }
@@ -82,7 +81,7 @@
   position: absolute;
   top: auto;
   left: auto;
-  right: -5%;
+  right: 0%;
   bottom: -10%;
   width: 100%;
   aspect-ratio: 1.7/1;
@@ -100,40 +99,48 @@
   right: 39%;
   bottom: -19%;
   width: 29%;
+  transform-origin: 50% 100%;
 }
 
 .img_1 {
   right: 12%;
   bottom: -16%;
   width: 23%;
+  transform-origin: 50% 100%;
 }
 
 .img_2 {
   right: 18%;
   bottom: -15%;
   width: 35%;
+  transform-origin: 100% 50%;
 }
 
 .img_3 {
   right: -10%;
   bottom: 38%;
   width: 21%;
+  transform-origin: 50% 100%;
 }
 
 .img_4 {
   right: -10%;
   bottom: 13%;
   width: 26%;
+  transform-origin: 50% 100%;
 }
 
 .img_5 {
   right: -3%;
   bottom: -22%;
   width: 30%;
+  transform-origin: 50% 100%;
+  /* background-color: red; */
 }
 
 .img_6 {
   right: -4%;
   bottom: -22%;
   width: 17%;
+  transform-origin: 50% 100%;
 }

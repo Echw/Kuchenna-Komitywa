@@ -1,0 +1,82 @@
+.cards_section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: rem(97px);
+  position: relative;
+  flex-wrap: nowrap;
+  max-width: 100vw;
+  overflow: hidden;
+  margin-left: rem(165px);
+}
+
+.small_card {
+  width: rem(523px);
+  position: relative;
+  padding: 76px 0px;
+  overflow: hidden;
+  height: rem(650px);
+  max-height: rem(650px);
+  flex-shrink: 0;
+}
+
+.image_container {
+  width: rem(397px);
+  border-radius: 20px;
+  overflow: hidden;
+  transform: translateY(0%);
+  transition: 0.4s ease-in-out 0.4s;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: rem(397px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.small_card_img {
+  width: 110%;
+  position: absolute;
+}
+
+.small_card_title {
+  margin-top: rem(38px);
+  margin-left: rem(70px);
+  font-weight: 900;
+  line-height: 1.1;
+  font-family: var(--Poppins);
+  user-select: none;
+  font-size: rem(38px);
+  transform: translateY(0%);
+  transition: 0.4s ease-in-out 0.4s;
+}
+
+.food_list {
+  position: absolute;
+  margin-left: rem(70px);
+  margin-right: rem(70px);
+  top: 60%;
+  opacity: 0;
+  transition: 0.4s ease-in-out 0s;
+  font-family: var(--Roboto);
+  user-select: none;
+  font-size: rem(24px);
+}
+
+.small_card:hover .image_container {
+  transform: translateY(-30%);
+  width: 100%;
+  height: 60%;
+  transition-delay: 0s;
+}
+
+.small_card:hover .small_card_title {
+  transform: translateY(-230%);
+  transition-delay: 0s;
+}
+.small_card:hover .food_list {
+  opacity: 1;
+  transition: 0.4s ease-in-out 0.4s;
+}

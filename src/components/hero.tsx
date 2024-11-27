@@ -1,35 +1,116 @@
+"use client";
+
 import { Container, Title, Text, Group } from "@mantine/core";
 import classes from "./hero.module.css";
+import * as motion from "framer-motion/client";
+import { Variants } from "framer-motion";
+import { useRef, useState } from "react";
+
+const containerVariants: Variants = {
+  animate: {
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const childVariants: Variants = {
+  animate: {
+    rotate: [0, 5],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      repeatType: "mirror",
+      ease: "easeInOut",
+    },
+  },
+};
+
+function getRelativeCoordinates(
+  event: MouseEvent,
+  referenceElement: HTMLDivElement
+) {
+  const position = {
+    x: event.pageX,
+    y: event.pageY,
+  };
+
+  const offset = {
+    left: referenceElement.offsetLeft,
+    top: referenceElement.offsetTop,
+    width: referenceElement.clientWidth,
+    height: referenceElement.clientHeight,
+  };
+
+  let reference = referenceElement.offsetParent as HTMLElement;
+
+  while (reference) {
+    offset.left += reference.offsetLeft;
+    offset.top += reference.offsetTop;
+    reference = reference.offsetParent as HTMLElement;
+  }
+
+  return {
+    x: position.x - offset.left,
+    y: position.y - offset.top,
+    width: offset.width,
+    height: offset.height,
+    centerX: (position.x - offset.left - offset.width / 2) / (offset.width / 2),
+    centerY:
+      (position.y - offset.top - offset.height / 2) / (offset.height / 2),
+  };
+}
 
 export function Hero() {
+  const [hoveredImage, setHoveredImage] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({
+    centerX: 0,
+    centerY: 0,
+    width: 0,
+  });
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredImage(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredImage(null);
+  };
+
+  const handleMouseMove = (e: MouseEvent, index: number) => {
+    if (!imageRefs.current[index]) return;
+
+    const coordinates = getRelativeCoordinates(e, imageRefs.current[index]!);
+    setMousePosition(coordinates);
+  };
+
+  const getImageMovement = () => {
+    // console.log(mousePosition);
+
+    let rotate = 5;
+    if (
+      mousePosition.centerX > 0 &&
+      mousePosition.centerX < mousePosition.width / 2
+    ) {
+      rotate = -10;
+    } else rotate = 10;
+
+    return {
+      rotate,
+    };
+  };
+
   return (
-    <div className={classes.hero}>
+    <motion.div className={classes.hero}>
       <Container className={classes.container} size="md">
         <Group gap={2} className={classes.title_group}>
-          <Title className={classes.title} size="h1">
-            K
-          </Title>
-          <Title className={classes.title} size="h1">
-            u
-          </Title>
-          <Title className={classes.title} size="h1">
-            c
-          </Title>
-          <Title className={classes.title} size="h1">
-            h
-          </Title>
-          <Title className={classes.title} size="h1">
-            e
-          </Title>
-          <Title className={classes.title} size="h1">
-            n
-          </Title>
-          <Title className={classes.title} size="h1">
-            n
-          </Title>
-          <Title className={classes.title} size="h1">
-            a
-          </Title>
+          {["K", "u", "c", "h", "e", "n", "n", "a"].map((letter, index) => (
+            <Title order={1} key={index} className={classes.title}>
+              {letter}
+            </Title>
+          ))}
         </Group>
         <Group className={classes.subtitle_group}>
           <div className={classes.subtitle_background}></div>
@@ -42,15 +123,48 @@ export function Hero() {
           cras.
         </Text>
       </Container>
-      <div className={classes.hero_img_group}>
-        <img src="/assets/Group.png" className={classes.img_0} />
-        <img src="/assets/Group-1.png" className={classes.img_1} />
-        <img src="/assets/Group-2.png" className={classes.img_2} />
-        <img src="/assets/Group-3.png" className={classes.img_3} />
-        <img src="/assets/Group-4.png" className={classes.img_4} />
-        <img src="/assets/Group-5.png" className={classes.img_5} />
-        <img src="/assets/Group-6.png" className={classes.img_6} />
-      </div>
-    </div>
+      <motion.div
+        className={classes.hero_img_group}
+        variants={containerVariants}
+        initial="hidden"
+        animate="animate"
+      >
+        {[...Array(7)].map((_, index) => {
+          const rotate =
+            hoveredImage === index ? getImageMovement() : { rotate: 5 };
+
+          return (
+            <motion.img
+              key={index}
+              ref={(el) => {
+                if (el) imageRefs.current[index] = el;
+              }}
+              src={`/assets/Group-${index}.png`}
+              className={classes[`img_${index}`]}
+              variants={childVariants}
+              animate={{
+                rotate: 5,
+              }}
+              initial={{
+                rotate: 0,
+              }}
+              transition={{
+                rotate: {
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                },
+              }}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              onMouseMove={(e) =>
+                handleMouseMove(e as unknown as MouseEvent, index)
+              }
+            />
+          );
+        })}
+      </motion.div>
+    </motion.div>
   );
 }

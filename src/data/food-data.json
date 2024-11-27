@@ -1,0 +1,44 @@
+{
+  "food": [
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Ciastka",
+      "types": ["matcha", "earl grey", "pumpkin spice", "czekladowe"]
+    },
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Zupy",
+      "types": [
+        "paprykowo-pomidorowa z soczewicą",
+        "ziemniaczano-czosnkowa z fasolą",
+        "curry z ciecierzycą"
+      ]
+    },
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Dania główne",
+      "types": [
+        "gulasz z soczewicą",
+        "leczo z tofu",
+        "niekebab",
+        "sos słodko-kwaśny"
+      ]
+    },
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Pierogi",
+      "types": [
+        "ruskie",
+        "kapusta i grzyby",
+        "z soczewicą",
+        "niemięsne",
+        "jagodowe"
+      ]
+    },
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Pasztet",
+      "types": ["soczewica ze śliwką", "w słoiku", "soczewica z żurawiną"]
+    }
+  ]
+}
