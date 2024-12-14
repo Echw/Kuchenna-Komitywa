@@ -1,10 +1,11 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { Container, Title, Text, Group } from "@mantine/core";
-import classes from "./hero.module.css";
 import * as motion from "framer-motion/client";
 import { Variants } from "framer-motion";
-import { useRef, useState } from "react";
+
+import classes from "./Hero.module.css";
 
 const containerVariants: Variants = {
   animate: {
@@ -29,7 +30,7 @@ const childVariants: Variants = {
 
 function getRelativeCoordinates(
   event: MouseEvent,
-  referenceElement: HTMLDivElement
+  referenceElement: HTMLDivElement,
 ) {
   const position = {
     x: event.pageX,

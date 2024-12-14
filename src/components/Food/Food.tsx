@@ -2,10 +2,11 @@
 
 import React from "react";
 import { Card, Title, Image, Group, List, ThemeIcon, rem } from "@mantine/core";
-import cardClasses from "./Card.module.css";
-import classes from "./Food.module.css";
 import { IconSeedingFilled } from "@tabler/icons-react";
-import foodData from "../data/food-data.json";
+
+import cardClasses from "./../Card.module.css";
+import classes from "./Food.module.css";
+import foodData from "../../data/food-data.json";
 
 interface FoodItem {
   img: string;
@@ -34,7 +35,7 @@ export const Food = () => {
 
       <Group className={classes.cards_section} pt={"xl"}>
         {(foodData as FoodData).food.map((item, index) =>
-          foodCard(item, index)
+          foodCard(item, index),
         )}
       </Group>
     </Card>

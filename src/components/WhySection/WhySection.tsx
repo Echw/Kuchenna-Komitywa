@@ -1,6 +1,7 @@
-import { Card, Title, Text, Image } from "@mantine/core";
 import React from "react";
-import cardClasses from "./Card.module.css";
+import { Card, Title, Text, Image } from "@mantine/core";
+
+import cardClasses from "./../Card.module.css";
 import classes from "./WhySection.module.css";
 
 export const WhySection = () => {

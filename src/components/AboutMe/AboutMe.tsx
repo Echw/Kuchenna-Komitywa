@@ -1,6 +1,7 @@
-import { Card, Title, Image, Text } from "@mantine/core";
 import React from "react";
-import cardClasses from "./Card.module.css";
+import { Card, Title, Image, Text } from "@mantine/core";
+
+import cardClasses from "./../Card.module.css";
 import classes from "./AboutMe.module.css";
 
 export const AboutMe = () => {
@@ -16,7 +17,6 @@ export const AboutMe = () => {
           alt="Mistrz kuchnii"
           className={classes.about_me_img}
         />
-
         <div className={classes.about_me_description}>
           <Title
             order={2}

@@ -1,21 +1,20 @@
-import { Header } from "@/components/Header";
-import styles from "./page.module.css";
-import { Hero } from "@/components/Hero";
-import { WhySection } from "@/components/WhySection";
-import { AboutMe } from "@/components/AboutMe";
-import { Food } from "@/components/Food";
+import classes from "./page.module.css";
+import { Header } from "@/components/Header/Header";
+import { Hero } from "@/components/Hero/Hero";
+import { WhySection } from "@/components/WhySection/WhySection";
+import { AboutMe } from "@/components/AboutMe/AboutMe";
+import { Food } from "@/components/Food/Food";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className={classes.page}>
+      <main className={classes.main}>
         <Header />
         <Hero />
         <WhySection />
         <AboutMe />
         <Food />
       </main>
-      <footer className={styles.footer}></footer>
     </div>
   );
 }

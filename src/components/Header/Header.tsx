@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-
 import Image from "next/image";
 import { Container, Group, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
-import classes from "./header.module.css";
+import classes from "./Header.module.css";
 
 export function Logo() {
   return <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />;
