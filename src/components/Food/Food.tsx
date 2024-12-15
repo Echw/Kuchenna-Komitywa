@@ -4,8 +4,8 @@ import React from "react";
 import { Card, Title, Image, Group, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
 
-import cardClasses from "./../Card.module.css";
-import classes from "./Food.module.css";
+import cardStyles from "./../Card.module.scss";
+import styles from "./Food.module.scss";
 import foodData from "../../data/food-data.json";
 
 interface FoodItem {
@@ -22,18 +22,18 @@ export const Food = () => {
   return (
     <Card
       radius="xl"
-      className={cardClasses.card}
+      className={cardStyles.card}
       styles={{ root: { backgroundColor: "#D8E0A5" } }}
     >
       <Title
         order={2}
-        className={cardClasses.card_title}
+        className={cardStyles.card_title}
         c="var(--mantine-color-mainGreen-8)"
       >
         Jedzonka
       </Title>
 
-      <Group className={classes.cards_section} pt={"xl"}>
+      <Group className={styles.cards_section} pt={"xl"}>
         {(foodData as FoodData).food.map((item, index) =>
           foodCard(item, index),
         )}
@@ -44,23 +44,23 @@ export const Food = () => {
 
 const foodCard = (item: FoodItem, index: number): React.ReactElement => {
   return (
-    <Card key={index} radius="xl" className={classes.small_card}>
-      <div className={classes.image_container}>
+    <Card key={index} radius="xl" className={styles.small_card}>
+      <div className={styles.image_container}>
         <Image
           src={item.img}
           alt={item.name.toLowerCase()}
-          className={classes.small_card_img}
+          className={styles.small_card_img}
         />
       </div>
       <Title
         order={3}
-        className={classes.small_card_title}
+        className={styles.small_card_title}
         c="var(--mantine-color-orange-6)"
       >
         {item.name}
       </Title>
       <List
-        className={classes.food_list}
+        className={styles.food_list}
         spacing="xs"
         size="sm"
         center

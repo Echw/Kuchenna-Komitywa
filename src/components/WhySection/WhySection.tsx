@@ -1,23 +1,23 @@
 import React from "react";
 import { Card, Title, Text, Image } from "@mantine/core";
 
-import cardClasses from "./../Card.module.css";
-import classes from "./WhySection.module.css";
+import cardStyles from "./../Card.module.scss";
+import styles from "./WhySection.module.scss";
 
 export const WhySection = () => {
   return (
-    <Card radius="xl" className={cardClasses.card}>
+    <Card radius="xl" className={cardStyles.card}>
       <Title
         order={2}
-        className={cardClasses.card_title}
+        className={cardStyles.card_title}
         c="var(--mantine-color-mainGreen-8)"
       >
         Dlaczego kuchnia roślinna?
       </Title>
 
-      <div className={classes.why_points}>
+      <div className={styles.why_points}>
         <svg
-          className={classes.why_path}
+          className={styles.why_path}
           viewBox="0 0 1034 1470"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -58,34 +58,34 @@ export const WhySection = () => {
           <circle cx="950.5" cy="752.5" r="20.5" fill="white" />
           <circle cx="950.5" cy="752.5" r="10.5" fill="#F1753F" />
         </svg>
-        <Text className={classes.why_point}>
+        <Text className={styles.why_point}>
           <span>100% roślinne i naturalne składniki</span>
           <br />
           Wszystkie nasze produkty są w pełni wegańskie, bez sztucznych
           dodatków, konserwantów i barwników. Tworzymy je z najwyższej jakości
           składników, które są zdrowe i odżywcze.
         </Text>
-        <Text className={classes.why_point}>
+        <Text className={styles.why_point}>
           <span>Zrównoważona produkcja</span>
           <br />
           Działamy z myślą o środowisku, wykorzystując lokalne, sezonowe
           produkty i ograniczając zużycie plastiku.
         </Text>
-        <Text className={classes.why_point}>
+        <Text className={styles.why_point}>
           <span>Doskonały smak i różnorodność</span>
           <br />
           Nasze menu oferuje unikalne połączenia smaków, które zadowolą zarówno
           miłośników kuchni roślinnej, jak i tych, którzy dopiero odkrywają
           wegańskie jedzenie.
         </Text>
-        <Text className={classes.why_point}>
+        <Text className={styles.why_point}>
           <span>Korzystne ceny</span>
           <br />
           Oferujemy wegański catering w przystępnych cenach, bez kompromisów na
           jakości. Dzięki temu możesz cieszyć się zdrowymi, roślinnymi daniami
           bez nadwyrężania budżetu.
         </Text>
-        <Text className={classes.why_point}>
+        <Text className={styles.why_point}>
           <span>Wygoda i oszczędność czasu</span>
           <br />
           Nasze dania w słoikach są idealne dla osób, które chcą zdrowo jeść,
@@ -97,37 +97,37 @@ export const WhySection = () => {
         src={`/assets/why_1.png`}
         alt="leafs"
         w={135}
-        className={classes.why_img}
+        className={styles.why_img}
       />
       <Image
         src={`/assets/why_2.png`}
         alt="leafs"
         w={305}
-        className={classes.why_img}
+        className={styles.why_img}
       />
       <Image
         src={`/assets/why_3.png`}
         alt="leafs"
         w={116}
-        className={classes.why_img}
+        className={styles.why_img}
       />
       <Image
         src={`/assets/why_4.png`}
         alt="leafs"
         w={166}
-        className={classes.why_img}
+        className={styles.why_img}
       />
       <Image
         src={`/assets/why_5.png`}
         alt="leafs"
         w={285}
-        className={classes.why_img}
+        className={styles.why_img}
       />
       <Image
         src={`/assets/why_6.png`}
         alt="leafs"
         w={423}
-        className={classes.why_img}
+        className={styles.why_img}
       />
     </Card>
   );

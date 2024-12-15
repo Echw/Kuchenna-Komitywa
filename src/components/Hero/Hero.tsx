@@ -5,7 +5,7 @@ import { Container, Title, Text, Group } from "@mantine/core";
 import * as motion from "framer-motion/client";
 import { Variants } from "framer-motion";
 
-import classes from "./Hero.module.css";
+import styles from "./Hero.module.scss";
 
 const containerVariants: Variants = {
   animate: {
@@ -104,28 +104,28 @@ export function Hero() {
   };
 
   return (
-    <motion.div className={classes.hero}>
-      <Container className={classes.container} size="md">
-        <Group gap={2} className={classes.title_group}>
+    <motion.div className={styles.hero}>
+      <Container className={styles.container} size="md">
+        <Group gap={2} className={styles.title_group}>
           {["K", "u", "c", "h", "e", "n", "n", "a"].map((letter, index) => (
-            <Title order={1} key={index} className={classes.title}>
+            <Title order={1} key={index} className={styles.title}>
               {letter}
             </Title>
           ))}
         </Group>
-        <Group className={classes.subtitle_group}>
-          <div className={classes.subtitle_background}></div>
-          <Title className={classes.title} size="h2">
+        <Group className={styles.subtitle_group}>
+          <div className={styles.subtitle_background}></div>
+          <Title className={styles.title} size="h2">
             Komitywa
           </Title>
         </Group>
-        <Text className={classes.description} size="xl" mt="xl">
+        <Text className={styles.description} size="xl" mt="xl">
           Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
           cras.
         </Text>
       </Container>
       <motion.div
-        className={classes.hero_img_group}
+        className={styles.hero_img_group}
         variants={containerVariants}
         initial="hidden"
         animate="animate"
@@ -141,7 +141,7 @@ export function Hero() {
                 if (el) imageRefs.current[index] = el;
               }}
               src={`/assets/Group-${index}.png`}
-              className={classes[`img_${index}`]}
+              className={styles[`img_${index}`]}
               variants={childVariants}
               animate={{
                 rotate: 5,

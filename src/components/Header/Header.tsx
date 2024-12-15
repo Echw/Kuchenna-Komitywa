@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Container, Group, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
-import classes from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 export function Logo() {
   return <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />;
@@ -27,7 +27,7 @@ export function Header() {
     <a
       key={link.label}
       href={link.link}
-      className={classes.link}
+      className={styles.link}
       data-active={active === link.link || undefined}
       onClick={(event) => {
         event.preventDefault();
@@ -39,8 +39,8 @@ export function Header() {
   ));
 
   return (
-    <header className={classes.header}>
-      <Container size="xxl" className={classes.inner}>
+    <header className={styles.header}>
+      <Container size="xxl" className={styles.inner}>
         <Logo />
         <Group gap={20} visibleFrom="xs">
           {items}
