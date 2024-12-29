@@ -63,7 +63,7 @@ function getRelativeCoordinates(
   };
 }
 
-export function Hero() {
+const Hero = () => {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({
     centerX: 0,
@@ -168,4 +168,6 @@ export function Hero() {
       </motion.div>
     </motion.div>
   );
-}
+};
+
+export default Hero;

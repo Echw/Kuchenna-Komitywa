@@ -1,7 +1,6 @@
 .why_points {
   height: 100%;
   position: relative;
-  width: 50%;
   max-width: 585px;
   padding-bottom: rem(380px);
   padding-top: rem(177px);
@@ -9,6 +8,7 @@
   grid-template-rows: repeat(5, 1fr);
   display: grid;
   grid-gap: 4.5rem;
+  margin: 0 auto;
 
   @media (max-width: 1080px) {
     grid-gap: 3.8rem;
@@ -21,7 +21,6 @@
 
 .why_path {
   width: 180%;
-
   position: absolute;
   grid-area: 1 / 1 / 6 / 2;
   transform: translate(-56%, -9%);
@@ -69,23 +68,28 @@
   top: 15%;
   transform: rotate(-25deg);
 }
+
 .why_img:nth-of-type(2) {
   left: 1%;
   top: 14%;
   transform: rotate(145deg);
 }
+
 .why_img:nth-of-type(3) {
   right: 12%;
   top: 43%;
 }
+
 .why_img:nth-of-type(4) {
   right: 3%;
   top: 37%;
 }
+
 .why_img:nth-of-type(5) {
   left: 3%;
   top: 44%;
 }
+
 .why_img:nth-of-type(6) {
   right: 0%;
   bottom: 4%;

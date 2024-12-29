@@ -1,20 +1,18 @@
 import React from "react";
-import { Card, Title, Text, Image } from "@mantine/core";
+import { Title, Text, Image } from "@mantine/core";
 
-import cardStyles from "./../Card.module.scss";
+import SectionContainer from "../common/SectionContainer";
 import styles from "./WhySection.module.scss";
 
-export const WhySection = () => {
+const WhySection = () => {
   return (
-    <Card radius="xl" className={cardStyles.card}>
-      <Title
-        order={2}
-        className={cardStyles.card_title}
-        c="var(--mantine-color-mainGreen-8)"
-      >
+    <SectionContainer
+      id="WhySection"
+      backgroundColor="var(--mantine-color-white)"
+    >
+      <Title order={2} c="var(--mantine-color-mainGreen-8)">
         Dlaczego kuchnia roślinna?
       </Title>
-
       <div className={styles.why_points}>
         <svg
           className={styles.why_path}
@@ -129,6 +127,8 @@ export const WhySection = () => {
         w={423}
         className={styles.why_img}
       />
-    </Card>
+    </SectionContainer>
   );
 };
+
+export default WhySection;

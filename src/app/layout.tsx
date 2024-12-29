@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 
-import "./globals.scss";
 import { theme } from "@/theme";
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Kuchenna Komitywa",

@@ -1,9 +1,10 @@
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import WhySection from "@/components/WhySection";
+import AboutMeSection from "@/components/AboutMeSection";
+import FoodSection from "@/components/FoodSection";
+
 import styles from "./page.module.scss";
-import { Header } from "@/components/Header/Header";
-import { Hero } from "@/components/Hero/Hero";
-import { WhySection } from "@/components/WhySection/WhySection";
-import { AboutMe } from "@/components/AboutMe/AboutMe";
-import { Food } from "@/components/Food/Food";
 
 export default function Home() {
   return (
@@ -12,8 +13,8 @@ export default function Home() {
         <Header />
         <Hero />
         <WhySection />
-        <AboutMe />
-        <Food />
+        <AboutMeSection />
+        <FoodSection />
       </main>
     </div>
   );

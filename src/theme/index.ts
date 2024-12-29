@@ -21,14 +21,18 @@ export const theme = createTheme({
     xl: "5px 5px 3px rgba(0, 0, 0, .25)",
   },
 
+  fontFamily: "Roboto, sans-serif",
+
   headings: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Poppins, sans-serif",
     sizes: {
       h1: {
         fontSize: rem(120),
       },
       h2: {
-        fontSize: rem(78),
+        fontSize: rem(56),
+        fontWeight: "900",
+        lineHeight: "1.1",
       },
     },
   },

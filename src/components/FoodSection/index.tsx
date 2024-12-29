@@ -4,8 +4,8 @@ import React from "react";
 import { Card, Title, Image, Group, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
 
-import cardStyles from "./../Card.module.scss";
-import styles from "./Food.module.scss";
+import SectionContainer from "../common/SectionContainer";
+import styles from "./FoodSection.module.scss";
 import foodData from "../../data/food-data.json";
 
 interface FoodItem {
@@ -18,18 +18,10 @@ interface FoodData {
   food: FoodItem[];
 }
 
-export const Food = () => {
+const FoodSection = () => {
   return (
-    <Card
-      radius="xl"
-      className={cardStyles.card}
-      styles={{ root: { backgroundColor: "#D8E0A5" } }}
-    >
-      <Title
-        order={2}
-        className={cardStyles.card_title}
-        c="var(--mantine-color-mainGreen-8)"
-      >
+    <SectionContainer id="FoodSection" backgroundColor="#D8E0A5">
+      <Title order={2} c="var(--mantine-color-mainGreen-8)">
         Jedzonka
       </Title>
 
@@ -38,7 +30,7 @@ export const Food = () => {
           foodCard(item, index),
         )}
       </Group>
-    </Card>
+    </SectionContainer>
   );
 };
 
@@ -77,3 +69,5 @@ const foodCard = (item: FoodItem, index: number): React.ReactElement => {
     </Card>
   );
 };
+
+export default FoodSection;

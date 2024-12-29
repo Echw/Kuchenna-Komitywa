@@ -19,7 +19,7 @@ const links = [
   { link: "/contact", label: "Kontakt" },
 ];
 
-export function Header() {
+const Header = () => {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState<string | null>();
 
@@ -50,4 +50,6 @@ export function Header() {
       </Container>
     </header>
   );
-}
+};
+
+export default Header;
