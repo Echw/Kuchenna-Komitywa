@@ -20,7 +20,10 @@ interface FoodData {
 
 const FoodSection = () => {
   return (
-    <SectionContainer id="FoodSection" backgroundColor="#D8E0A5">
+    <SectionContainer
+      id="FoodSection"
+      backgroundColor="var(--mantine-color-mainGreen-10)"
+    >
       <Title order={2} c="var(--mantine-color-mainGreen-8)">
         Jedzonka
       </Title>
@@ -57,7 +60,7 @@ const foodCard = (item: FoodItem, index: number): React.ReactElement => {
         size="sm"
         center
         icon={
-          <ThemeIcon color="#81964c" size={24} radius="xl">
+          <ThemeIcon c="var(--mantine-color-mainGreen-7)" size={24} radius="xl">
             <IconSeedingFilled style={{ width: rem(16), height: rem(16) }} />
           </ThemeIcon>
         }
