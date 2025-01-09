@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  position: relative;
+  margin-bottom: 10.75rem;
+}
+
+.footer_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  height: 100%;
+}
+
+.footer_title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+  flex-direction: column;
+  max-width: rem(626px);
+  font-family: var(--Poppins);
+  width: 100%;
+}
+
+.footer_title > h2:first-of-type {
+  font-size: rem(96px);
+}
