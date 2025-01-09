@@ -1,5 +1,3 @@
-import path from "node:path";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -7,9 +5,7 @@ const nextConfig = {
   },
   sassOptions: {
     implementation: "sass-embedded",
-    additionalData: `@use "${path
-      .join(process.cwd(), "_mantine")
-      .replace(/\\/g, "/")}" as *;`,
+    additionalData: '@use "_mantine" as *;',
   },
 };
 
