@@ -14,3 +14,20 @@
 .container {
   // width: 100%;
 }
+
+.box_gallery {
+  // margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.box_footer {
+  border-radius: var(--mantine-radius-xl) var(--mantine-radius-xl) 0 0;
+}
+
+.box_gallery > div {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+}

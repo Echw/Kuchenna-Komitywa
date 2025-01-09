@@ -5,6 +5,9 @@ import AboutMeSection from "@/components/AboutMeSection";
 import FoodSection from "@/components/FoodSection";
 
 import styles from "./page.module.scss";
+import Gallery from "@/components/Gallery";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +18,9 @@ export default function Home() {
         <WhySection />
         <AboutMeSection />
         <FoodSection />
+        <Gallery />
+        <ContactForm />
+        <Footer />
       </main>
     </div>
   );
