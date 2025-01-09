@@ -144,3 +144,42 @@
   width: 17%;
   transform-origin: 50% 100%;
 }
+
+.scroll_icon {
+  left: 10%;
+  bottom: -2vw;
+  width: 120px;
+  position: absolute;
+  display: flow-root;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.scroll_svg {
+  animation: rotata 31s infinite linear;
+  transform: translate(0%, 0%);
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+@keyframes rotata {
+  0% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  100% {
+    transform: translate(0%, 0%) rotate(360deg);
+  }
+}
+
+.scroll_icon p {
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  bottom: 105px;
+  position: relative;
+}

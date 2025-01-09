@@ -6,6 +6,7 @@ import * as motion from "framer-motion/client";
 import { Variants } from "framer-motion";
 
 import styles from "./Hero.module.scss";
+import { ScrollIcon } from "./ScrollIcon";
 
 const containerVariants: Variants = {
   animate: {
@@ -28,10 +29,7 @@ const childVariants: Variants = {
   },
 };
 
-function getRelativeCoordinates(
-  event: MouseEvent,
-  referenceElement: HTMLDivElement,
-) {
+function getRelativeCoordinates(event: MouseEvent, referenceElement: HTMLDivElement) {
   const position = {
     x: event.pageX,
     y: event.pageY,
@@ -58,8 +56,7 @@ function getRelativeCoordinates(
     width: offset.width,
     height: offset.height,
     centerX: (position.x - offset.left - offset.width / 2) / (offset.width / 2),
-    centerY:
-      (position.y - offset.top - offset.height / 2) / (offset.height / 2),
+    centerY: (position.y - offset.top - offset.height / 2) / (offset.height / 2),
   };
 }
 
@@ -91,10 +88,7 @@ const Hero = () => {
     // console.log(mousePosition);
 
     let rotate = 5;
-    if (
-      mousePosition.centerX > 0 &&
-      mousePosition.centerX < mousePosition.width / 2
-    ) {
+    if (mousePosition.centerX > 0 && mousePosition.centerX < mousePosition.width / 2) {
       rotate = -10;
     } else rotate = 10;
 
@@ -120,9 +114,9 @@ const Hero = () => {
           </Title>
         </Group>
         <Text className={styles.description} size="xl" mt="xl">
-          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
-          cras.
+          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non cras.
         </Text>
+        <ScrollIcon />
       </Container>
       <motion.div
         className={styles.hero_img_group}
@@ -131,8 +125,7 @@ const Hero = () => {
         animate="animate"
       >
         {[...Array(7)].map((_, index) => {
-          const rotate =
-            hoveredImage === index ? getImageMovement() : { rotate: 5 };
+          const rotate = hoveredImage === index ? getImageMovement() : { rotate: 5 };
 
           return (
             <motion.img
@@ -159,9 +152,7 @@ const Hero = () => {
               }}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              onMouseMove={(e) =>
-                handleMouseMove(e as unknown as MouseEvent, index)
-              }
+              onMouseMove={(e) => handleMouseMove(e as unknown as MouseEvent, index)}
             />
           );
         })}
