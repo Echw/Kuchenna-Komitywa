@@ -1,0 +1,26 @@
+.contact_form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 268px 765px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: relative;
+  margin-bottom: 10.75rem;
+  grid-auto-flow: column;
+}
+
+.contact_description {
+  max-width: 268px;
+}
+
+.form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  flex-direction: column;
+  max-width: rem(626px);
+  font-family: var(--Poppins);
+  font-size: rem(24px);
+  width: 100%;
+}
