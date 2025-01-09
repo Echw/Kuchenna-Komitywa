@@ -1,0 +1,12 @@
+{
+  "gallery": [
+    {
+      "img": "/assets/gallery_1.png",
+      "alt": "danie 1"
+    },
+    {
+      "img": "/assets/gallery_2.png",
+      "alt": "danie 2"
+    }
+  ]
+}
