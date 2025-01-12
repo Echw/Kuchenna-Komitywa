@@ -1,12 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Container, Title, Text, Group } from "@mantine/core";
+import { Box, Title, Text, Group } from "@mantine/core";
 import * as motion from "framer-motion/client";
 import { Variants } from "framer-motion";
+import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
 import { ScrollIcon } from "./ScrollIcon";
+import SectionContainer from "../common/SectionContainer";
 
 const containerVariants: Variants = {
   animate: {
@@ -29,7 +31,10 @@ const childVariants: Variants = {
   },
 };
 
-function getRelativeCoordinates(event: MouseEvent, referenceElement: HTMLDivElement) {
+function getRelativeCoordinates(
+  event: MouseEvent,
+  referenceElement: HTMLDivElement,
+) {
   const position = {
     x: event.pageX,
     y: event.pageY,
@@ -56,7 +61,8 @@ function getRelativeCoordinates(event: MouseEvent, referenceElement: HTMLDivElem
     width: offset.width,
     height: offset.height,
     centerX: (position.x - offset.left - offset.width / 2) / (offset.width / 2),
-    centerY: (position.y - offset.top - offset.height / 2) / (offset.height / 2),
+    centerY:
+      (position.y - offset.top - offset.height / 2) / (offset.height / 2),
   };
 }
 
@@ -85,10 +91,11 @@ const Hero = () => {
   };
 
   const getImageMovement = () => {
-    // console.log(mousePosition);
-
     let rotate = 5;
-    if (mousePosition.centerX > 0 && mousePosition.centerX < mousePosition.width / 2) {
+    if (
+      mousePosition.centerX > 0 &&
+      mousePosition.centerX < mousePosition.width / 2
+    ) {
       rotate = -10;
     } else rotate = 10;
 
@@ -98,26 +105,31 @@ const Hero = () => {
   };
 
   return (
-    <motion.div className={styles.hero}>
-      <Container className={styles.container} size="md">
+    <SectionContainer id="HeroSection">
+      <Box className={styles.container}>
         <Group gap={2} className={styles.title_group}>
-          {["K", "u", "c", "h", "e", "n", "n", "a"].map((letter, index) => (
-            <Title order={1} key={index} className={styles.title}>
-              {letter}
-            </Title>
-          ))}
+          <Title order={1} className={clsx(styles.title, styles.title1)}>
+            {["K", "u", "c", "h", "e", "n", "n", "a"].map((letter, index) => (
+              <span key={index}>{letter}</span>
+            ))}
+          </Title>
         </Group>
         <Group className={styles.subtitle_group}>
           <div className={styles.subtitle_background}></div>
-          <Title className={styles.title} size="h2">
+          <Title
+            order={2}
+            size="h2"
+            className={clsx(styles.title, styles.title2)}
+          >
             Komitywa
           </Title>
         </Group>
         <Text className={styles.description} size="xl" mt="xl">
-          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non cras.
+          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
+          cras.
         </Text>
         <ScrollIcon />
-      </Container>
+      </Box>
       <motion.div
         className={styles.hero_img_group}
         variants={containerVariants}
@@ -125,7 +137,8 @@ const Hero = () => {
         animate="animate"
       >
         {[...Array(7)].map((_, index) => {
-          const rotate = hoveredImage === index ? getImageMovement() : { rotate: 5 };
+          const rotate =
+            hoveredImage === index ? getImageMovement() : { rotate: 5 };
 
           return (
             <motion.img
@@ -152,12 +165,14 @@ const Hero = () => {
               }}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              onMouseMove={(e) => handleMouseMove(e as unknown as MouseEvent, index)}
+              onMouseMove={(e) =>
+                handleMouseMove(e as unknown as MouseEvent, index)
+              }
             />
           );
         })}
       </motion.div>
-    </motion.div>
+    </SectionContainer>
   );
 };
 

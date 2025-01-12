@@ -7,10 +7,6 @@ import { useDisclosure } from "@mantine/hooks";
 
 import styles from "./Header.module.scss";
 
-export function Logo() {
-  return <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />;
-}
-
 const links = [
   { link: "/about", label: "Dlaczego roślinna?" },
   { link: "/pricing", label: "O mnie" },
@@ -23,7 +19,7 @@ const Header = () => {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState<string | null>();
 
-  const items = links.map((link) => (
+  const linkItems = links.map((link) => (
     <a
       key={link.label}
       href={link.link}
@@ -40,13 +36,12 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Container size="xxl" className={styles.inner}>
-        <Logo />
-        <Group gap={20} visibleFrom="xs">
-          {items}
+      <Container className={styles.inner} pe="xl">
+        <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />
+        <Group gap={20} visibleFrom="sm">
+          {linkItems}
         </Group>
-
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
       </Container>
     </header>
   );

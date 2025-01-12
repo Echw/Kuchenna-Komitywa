@@ -6,17 +6,23 @@
   align-items: center;
   margin-bottom: -3rem;
   border-radius: var(--mantine-radius-xl);
-  z-index: 1;
-  padding: rem(150px) 2rem 1rem;
   position: relative;
 }
 
 .container {
-  // width: 100%;
+  // border: 1px solid black;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
+  position: relative;
+  padding: rem(150px) 2rem 1rem;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    padding: 5rem 1rem 1rem;
+  }
 }
 
 .box_gallery {
-  // margin: 0;
   padding: 0;
   overflow: hidden;
 }

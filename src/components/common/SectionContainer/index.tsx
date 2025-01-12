@@ -1,6 +1,6 @@
 import React from "react";
-import cx from "clsx";
-import { Box, Container } from "@mantine/core";
+import clsx from "clsx";
+import { Box } from "@mantine/core";
 
 import styles from "./SectionContainer.module.scss";
 
@@ -18,8 +18,8 @@ const SectionContainer = ({
   backgroundColor,
 }: SectionContainerProps) => {
   return (
-    <Box id={id} className={cx(className, styles.box)} bg={backgroundColor}>
-      <Container className={styles.container}>{children}</Container>
+    <Box id={id} className={clsx(className, styles.box)} bg={backgroundColor}>
+      <Box className={styles.container}>{children}</Box>
     </Box>
   );
 };
