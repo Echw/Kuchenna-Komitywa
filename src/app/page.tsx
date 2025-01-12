@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhySection from "@/components/WhySection";
 import AboutMeSection from "@/components/AboutMeSection";
-import FoodSection from "@/components/FoodSection";
+// import FoodSection from "@/components/FoodSection";
 
 import styles from "./page.module.scss";
 import Gallery from "@/components/Gallery";
@@ -17,7 +17,7 @@ export default function Home() {
         <Hero />
         <WhySection />
         <AboutMeSection />
-        <FoodSection />
+        {/* <FoodSection /> */}
         <Gallery />
         <ContactForm />
         <Footer />
