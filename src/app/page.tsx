@@ -7,21 +7,19 @@ import WhySection from "@/components/WhySection";
 // import ContactForm from "@/components/ContactForm";
 // import Footer from "@/components/Footer";
 
-import styles from "./page.module.scss";
-
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Header />
+    <>
+      <Header />
+      <main>
         <Hero />
         <WhySection />
         {/* <AboutMeSection /> */}
         {/* <FoodSection /> */}
         {/* <Gallery /> */}
         {/* <ContactForm /> */}
-        {/* <Footer /> */}
       </main>
-    </div>
+      {/* <Footer /> */}
+    </>
   );
 }
