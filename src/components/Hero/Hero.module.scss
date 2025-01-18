@@ -58,12 +58,18 @@
   max-width: rem(433px);
 
   @media (max-width: $mantine-breakpoint-sm) {
-    max-width: 100%;
+    max-width: 65%;
     font-size: var(--mantine-font-size-sm);
   }
 
   @media (max-width: $mantine-breakpoint-xs) {
     text-align: center;
+  }
+}
+
+.title_group {
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-top: 3rem;
   }
 }
 
@@ -121,11 +127,8 @@
   margin: 0 auto;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    width: 150%;
-  }
-
-  @media (max-width: $mantine-breakpoint-xs) {
-    width: 175%;
+    width: 140%;
+    bottom: 0%;
   }
 }
 
@@ -162,22 +165,36 @@
 }
 
 .img_4 {
+  right: -18%;
+  bottom: 19%;
+  width: 21%;
+  transform-origin: 50% 100%;
+}
+
+.img_5 {
   right: -10%;
   bottom: 13%;
   width: 26%;
   transform-origin: 50% 100%;
 }
 
-.img_5 {
+.img_6 {
   right: -3%;
   bottom: -22%;
   width: 30%;
   transform-origin: 50% 100%;
 }
 
-.img_6 {
+.img_7 {
   right: -4%;
   bottom: -22%;
+  width: 17%;
+  transform-origin: 50% 100%;
+}
+
+.img_8 {
+  right: -15%;
+  bottom: 4%;
   width: 17%;
   transform-origin: 50% 100%;
 }
@@ -189,6 +206,11 @@
   display: flow-root;
   box-sizing: border-box;
   color: #fff;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    bottom: 19%;
+    width: 100px;
+  }
 }
 
 .scroll_svg {
@@ -198,6 +220,11 @@
   height: auto;
   box-sizing: border-box;
   vertical-align: middle;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    bottom: 19%;
+    width: 100px;
+  }
 }
 
 @keyframes rotata {
@@ -218,4 +245,9 @@
   font-size: 20px;
   bottom: 105px;
   position: relative;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 16px;
+    margin-top: 33px;
+  }
 }
