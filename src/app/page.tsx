@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhySection from "@/components/WhySection";
-// import AboutMeSection from "@/components/AboutMeSection";
+import AboutMeSection from "@/components/AboutMeSection";
 // import FoodSection from "@/components/FoodSection";
 // import Gallery from "@/components/Gallery";
 // import ContactForm from "@/components/ContactForm";
@@ -14,7 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <WhySection />
-        {/* <AboutMeSection /> */}
+        <AboutMeSection />
         {/* <FoodSection /> */}
         {/* <Gallery /> */}
         {/* <ContactForm /> */}
