@@ -16,7 +16,11 @@
   max-width: 1920px;
   width: 100%;
   position: relative;
-  padding: rem(150px) 2rem 1rem;
+  padding: rem(160px) 2rem 1rem;
+
+  h2 {
+    text-align: center;
+  }
 
   @media (max-width: $mantine-breakpoint-xs) {
     padding: 5rem 1rem 1rem;

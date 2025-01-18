@@ -10,12 +10,17 @@
   grid-gap: 4.5rem;
   margin: 0 auto;
 
-  @media (max-width: 1080px) {
-    grid-gap: 3.8rem;
+  @media (max-width: $mantine-breakpoint-lg) {
+    padding-bottom: rem(450px);
   }
 
   @media (max-width: $mantine-breakpoint-md) {
-    grid-gap: 4rem;
+    padding-top: rem(100px);
+    grid-gap: 3rem;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-bottom: rem(100px);
   }
 }
 
@@ -25,20 +30,18 @@
   grid-area: 1 / 1 / 6 / 2;
   transform: translate(-56%, -9%);
   left: 50%;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    display: none;
+  }
 }
 
 .why_point {
   font-family: var(--Roboto);
   font-size: rem(24px);
   color: var(--mantine-color-mainGreen-9);
-
-  @media (max-width: $mantine-breakpoint-lg) {
-    font-size: rem(20px);
-  }
-
-  @media (max-width: $mantine-breakpoint-md) {
-    font-size: rem(18px);
-  }
+  height: 100%;
+  align-content: center;
 }
 
 .why_point span {
@@ -46,27 +49,40 @@
   font-size: rem(32px);
   text-wrap: nowrap;
 
-  @media (max-width: $mantine-breakpoint-lg) {
-    font-size: rem(32px);
-  }
-
-  @media (max-width: $mantine-breakpoint-md) {
-    font-size: rem(20px);
+  @media (max-width: $mantine-breakpoint-sm) {
+    text-wrap: wrap;
   }
 }
 
 .why_points p:nth-child(even) {
   text-align: end;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    text-align: left;
+  }
 }
 
 .why_img {
   position: absolute;
+
+  @media (max-width: $mantine-breakpoint-lg) {
+    display: none;
+  }
 }
 
 .why_img:nth-of-type(1) {
   left: 77%;
   top: 15%;
   transform: rotate(-25deg);
+
+  @media (max-width: $mantine-breakpoint-lg) {
+    display: block;
+    top: 12%;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: none;
+  }
 }
 
 .why_img:nth-of-type(2) {
@@ -91,8 +107,21 @@
 }
 
 .why_img:nth-of-type(6) {
-  right: 0%;
+  right: 0;
   bottom: 4%;
   left: auto;
   transform: rotate(118deg);
+
+  @media (max-width: $mantine-breakpoint-lg) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 2%;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: none;
+  }
 }
