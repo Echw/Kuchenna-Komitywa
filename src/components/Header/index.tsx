@@ -2,15 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Container,
-  Group,
-  Burger,
-  Divider,
-  Drawer,
-  ScrollArea,
-  UnstyledButton,
-} from "@mantine/core";
+import { Container, Group, Burger, Drawer, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import styles from "./Header.module.scss";
@@ -24,8 +16,7 @@ const links = [
 ];
 
 const Header = () => {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [active, setActive] = useState<string | null>();
 
   const linkItems = links.map((link) => (
@@ -51,39 +42,44 @@ const Header = () => {
           <Group gap={20} visibleFrom="sm">
             {linkItems}
           </Group>
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            hiddenFrom="sm"
-            size="sm"
-          />
+          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" size="sm" />
         </Container>
       </header>
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
+        position="bottom"
         size="100%"
         padding="md"
-        title="Menu"
         hiddenFrom="sm"
         zIndex={1000000}
+        className={styles.mobile_menu}
+        overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
+        transitionProps={{ duration: 400, timingFunction: "ease-in-out" }}
+        styles={{
+          content: {
+            backgroundColor: "var(--mantine-color-white)",
+            borderRadius: "20px 20px 0 0",
+          },
+          header: {
+            backgroundColor: "var(--mantine-color-white)",
+          },
+        }}
       >
-        <ScrollArea h="calc(100vh - 80px" mx="-md">
-          <Divider my="sm" />
-          {links.map((link) => (
-            <UnstyledButton
-              key={link.label}
-              onClick={() => {
-                setActive(link.link);
-                closeDrawer();
-              }}
-              className={styles.drawerLink}
-              data-active={active === link.link || undefined}
-            >
-              {link.label}
-            </UnstyledButton>
-          ))}
-        </ScrollArea>
+        <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />
+        {links.map((link) => (
+          <UnstyledButton
+            key={link.label}
+            onClick={() => {
+              setActive(link.link);
+              closeDrawer();
+            }}
+            className={styles.drawerLink}
+            data-active={active === link.link || undefined}
+          >
+            {link.label}
+          </UnstyledButton>
+        ))}
       </Drawer>
     </>
   );
