@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Card, Title, Image, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
 
@@ -44,7 +44,6 @@ const FoodSection = () => {
       const gap = parseInt(gapString, 10);
 
       const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
 
       const centerOffset = (viewportWidth - cardWidth) / 2;
       const totalCardsWidth = (cardWidth + gap) * cards.length - gap;
