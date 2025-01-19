@@ -9,10 +9,13 @@ import {
   Drawer,
   UnstyledButton,
   NavLink,
+  rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import styles from "./Header.module.scss";
+import { IconX } from "@tabler/icons-react";
 
 const links = [
   { link: "#why", label: "Dlaczego roślinna?" },
@@ -44,6 +47,23 @@ const Header = () => {
     };
   }, []);
 
+  const { scrollY } = useScroll();
+  const backgroundColor = useTransform(
+    scrollY,
+    [0, 150],
+    ["transparent", "var(--mantine-color-body)"],
+  );
+  const borderRadius = useTransform(
+    scrollY,
+    [0, 150],
+    ["0rem", "0 0 1rem 1rem"],
+  );
+  const boxShadow = useTransform(
+    scrollY,
+    [0, 150],
+    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"],
+  );
+
   const linkItems = links.map((link) => (
     <NavLink
       key={link.label}
@@ -56,8 +76,15 @@ const Header = () => {
 
   return (
     <>
-      <header className={styles.header}>
-        <Container className={styles.inner} pe="xl">
+      <motion.header
+        className={styles.header}
+        style={{
+          backgroundColor,
+          borderRadius,
+          boxShadow,
+        }}
+      >
+        <Container className={styles.inner}>
           <NavLink
             href="#hero"
             className={styles.home_link}
@@ -65,8 +92,8 @@ const Header = () => {
               <Image
                 src={`/assets/logo.svg`}
                 alt="logo"
-                width="127"
-                height="116"
+                width="65"
+                height="60"
               />
             }
           />
@@ -80,13 +107,13 @@ const Header = () => {
             size="sm"
           />
         </Container>
-      </header>
+      </motion.header>
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
         position="bottom"
         size="100%"
-        padding="md"
+        padding="lg"
         hiddenFrom="sm"
         zIndex={1000000}
         className={styles.mobile_menu}
@@ -98,8 +125,12 @@ const Header = () => {
             borderRadius: "20px 20px 0 0",
           },
           header: {
+            height: rem(60),
             backgroundColor: "var(--mantine-color-white)",
           },
+        }}
+        closeButtonProps={{
+          icon: <IconX size={20} stroke={2.5} />,
         }}
       >
         <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />

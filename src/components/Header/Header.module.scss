@@ -1,15 +1,10 @@
 .header {
-  height: rem(56px);
-  // background-color: var(--mantine-color-body);
   z-index: 99;
-  padding: 2rem 0 0;
-  margin: 2rem 0 0;
   position: sticky;
-  top: 2rem;
+  top: 0rem;
 }
 
 .inner {
-  height: rem(56px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +40,7 @@
   display: block;
   text-decoration: none;
   width: auto;
+  padding: 0;
 
   &:hover {
     background-color: transparent;
