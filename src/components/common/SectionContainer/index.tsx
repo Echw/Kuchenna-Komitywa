@@ -9,16 +9,23 @@ interface SectionContainerProps {
   children: React.ReactNode;
   backgroundColor?: string;
   className?: string;
+  ref?: React.RefObject<HTMLDivElement | null>;
 }
 
 const SectionContainer = ({
   id,
+  ref,
   className,
   children,
   backgroundColor,
 }: SectionContainerProps) => {
   return (
-    <Box id={id} className={clsx(className, styles.box)} bg={backgroundColor}>
+    <Box
+      id={id}
+      ref={ref}
+      className={clsx(className, styles.box)}
+      bg={backgroundColor}
+    >
       <Box className={styles.container}>{children}</Box>
     </Box>
   );

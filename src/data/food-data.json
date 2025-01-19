@@ -39,6 +39,16 @@
       "img": "/assets/cookies.jpg",
       "name": "Pasztet",
       "types": ["soczewica ze śliwką", "w słoiku", "soczewica z żurawiną"]
+    },
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Pasztet",
+      "types": ["soczewica ze śliwką", "w słoiku", "soczewica z żurawiną"]
+    },
+    {
+      "img": "/assets/cookies.jpg",
+      "name": "Krokieciki",
+      "types": ["soczewica ze śliwką", "w słoiku", "soczewica z żurawiną"]
     }
   ]
 }
