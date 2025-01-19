@@ -132,7 +132,7 @@ const FoodSection = () => {
     <div ref={sectionRef} style={{ height: sectionHeight }}>
       <div className={styles.sticky_container}>
         <SectionContainer
-          id="FoodSection"
+          id="foods"
           backgroundColor="var(--mantine-color-mainGreen-10)"
         >
           <div className={styles.content_wrapper}>

@@ -19,12 +19,18 @@ const Gallery = () => {
   return (
     <SectionContainer
       className={sectionContainerStyles.box_gallery}
-      id="Gallery"
+      id="gallery"
       backgroundColor="var(--mantine-color-mainGreen-8)"
     >
       <Group className={styles.gallery_wrapper}>
         {(galleryData as GalleryData).gallery.map((item, index) => (
-          <Image src={item.img} alt={item.alt} key={index} fit="cover" height={"100%"} />
+          <Image
+            src={item.img}
+            alt={item.alt}
+            key={index}
+            fit="cover"
+            height={"100%"}
+          />
         ))}
       </Group>
     </SectionContainer>

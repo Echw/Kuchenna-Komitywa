@@ -26,15 +26,27 @@
   font-size: var(--mantine-font-size-sm);
   font-weight: 600;
   transition: all 0.4s ease-in-out;
+  width: auto;
 
   &:hover {
     box-shadow: inset 0px -1px 0px 0px var(--mantine-color-mainGreen-9);
     border-radius: 0;
+    background-color: transparent;
   }
 
   &[data-active] {
     box-shadow: inset 0px 0px 0px 1px var(--mantine-color-mainGreen-9);
     color: var(--mantine-color-mainGreen-9);
+  }
+}
+
+.home_link {
+  display: block;
+  text-decoration: none;
+  width: auto;
+
+  &:hover {
+    background-color: transparent;
   }
 }
 

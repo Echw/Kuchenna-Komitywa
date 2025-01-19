@@ -8,7 +8,7 @@ import SectionContainer from "../common/SectionContainer";
 
 const ContactForm = () => {
   return (
-    <SectionContainer id="ContactForm" backgroundColor="#31582B">
+    <SectionContainer id="contact" backgroundColor="#31582B">
       <div className={styles.contact_form}>
         <div className={styles.contact_description}>
           <Title order={2} c="var(--mantine-color-orange-6)">
@@ -57,7 +57,12 @@ const ContactForm = () => {
               }}
             />
           </div>
-          <Button fullWidth mt="xl" bg="var(--mantine-color-orange-6)" c="#31582B">
+          <Button
+            fullWidth
+            mt="xl"
+            bg="var(--mantine-color-orange-6)"
+            c="#31582B"
+          >
             Wyślij
           </Button>
         </div>

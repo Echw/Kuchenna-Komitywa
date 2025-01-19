@@ -6,10 +6,7 @@ import styles from "./WhySection.module.scss";
 
 const WhySection = () => {
   return (
-    <SectionContainer
-      id="WhySection"
-      backgroundColor="var(--mantine-color-white)"
-    >
+    <SectionContainer id="why" backgroundColor="var(--mantine-color-white)">
       <Title order={2} c="var(--mantine-color-mainGreen-8)">
         Dlaczego kuchnia roślinna?
       </Title>
