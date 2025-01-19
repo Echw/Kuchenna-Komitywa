@@ -1,5 +1,5 @@
-import React from "react";
 import { IconArrowDown } from "@tabler/icons-react";
+
 import styles from "./Hero.module.scss";
 
 export const ScrollIcon = () => {
@@ -29,11 +29,15 @@ export const ScrollIcon = () => {
           letterSpacing="3"
           width="100"
         >
-          <textPath xlinkHref="#circle">• Kuchenna Komitywa • Kuchenna Komitywa</textPath>
+          <textPath xlinkHref="#circle">
+            • Kuchenna Komitywa • Kuchenna Komitywa
+          </textPath>
         </text>
       </svg>
       <p>scroll</p>
-      <IconArrowDown style={{ width: "100%", position: "relative", bottom: "105px" }} />
+      <IconArrowDown
+        style={{ width: "100%", position: "relative", bottom: "105px" }}
+      />
     </div>
   );
 };

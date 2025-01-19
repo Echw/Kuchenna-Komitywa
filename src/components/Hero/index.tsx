@@ -5,8 +5,8 @@ import { Variants, motion } from "motion/react";
 import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
-import { ScrollIcon } from "./ScrollIcon";
 import SectionContainer from "../common/SectionContainer";
+import { ScrollIcon } from "./ScrollIcon";
 
 const containerVariants: Variants = {
   animate: {

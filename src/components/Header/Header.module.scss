@@ -37,6 +37,7 @@
   &[data-active] {
     box-shadow: inset 0px 0px 0px 1px var(--mantine-color-mainGreen-9);
     color: var(--mantine-color-mainGreen-9);
+    background-color: transparent;
   }
 }
 

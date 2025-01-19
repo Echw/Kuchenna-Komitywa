@@ -1,4 +1,3 @@
-import React from "react";
 import SectionContainer from "../common/SectionContainer";
 import { Group, Image } from "@mantine/core";
 import galleryData from "../../data/gallery-data.json";

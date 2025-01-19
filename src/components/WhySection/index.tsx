@@ -1,4 +1,3 @@
-import React from "react";
 import { Title, Text, Image } from "@mantine/core";
 
 import SectionContainer from "../common/SectionContainer";

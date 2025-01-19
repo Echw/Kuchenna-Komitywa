@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Title, Text, Button, TextInput, Textarea } from "@mantine/core";
 
 import styles from "./ContactForm.module.scss";

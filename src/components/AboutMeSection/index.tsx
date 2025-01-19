@@ -1,4 +1,3 @@
-import React from "react";
 import { Title, Image, Text } from "@mantine/core";
 
 import styles from "./AboutMeSection.module.scss";
