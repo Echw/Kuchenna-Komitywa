@@ -5,7 +5,7 @@ import AboutMeSection from "@/components/AboutMeSection";
 // import FoodSection from "@/components/FoodSection";
 import Gallery from "@/components/Gallery";
 import ContactForm from "@/components/ContactForm";
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <Gallery />
         <ContactForm />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

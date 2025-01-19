@@ -34,6 +34,7 @@ const Footer = () => {
             Komitywa
           </Title>
         </div>
+        <p className={styles.copyright}>©2025 Kuchenna Komitywa. All Rights Reserved.</p>
       </footer>
     </SectionContainer>
   );

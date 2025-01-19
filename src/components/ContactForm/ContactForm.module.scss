@@ -38,11 +38,6 @@
     width: 100%;
 
     label {
-      // position: absolute;
-      top: 0;
-      left: 0;
-      // margin-left: 1rem;
-      margin-top: 0.5rem;
       font-size: rem(16px);
       color: #132b13;
       z-index: 2;
@@ -50,18 +45,5 @@
       font-family: var(--Poppins);
       pointer-events: none;
     }
-
-    &:has(> .mantine-InputWrapper-root > .mantine-Input-wrapper > input:focus) {
-      background-color: red;
-      border: 2px solid red;
-    }
-
-    input:focus + label {
-      color: red;
-    }
   }
-}
-
-.mantine-InputWrapper-root:has(.mantine-Input-wrapper > input:focus) .mantine-InputWrapper-label {
-  color: red !important;
 }
