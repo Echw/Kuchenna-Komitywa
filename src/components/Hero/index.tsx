@@ -31,7 +31,7 @@ const childVariants: Variants = {
 
 const Hero = () => {
   return (
-    <SectionContainer id="HeroSection">
+    <SectionContainer id="hero">
       <Box className={styles.container}>
         <Group gap={2} className={styles.title_group}>
           <Title order={1} className={clsx(styles.title, styles.title1)}>

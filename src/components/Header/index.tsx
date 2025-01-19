@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   Container,
@@ -27,6 +27,23 @@ const Header = () => {
     useDisclosure(false);
   const [active, setActive] = useState<string | null>();
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      console.log(window.location.hash);
+      setActive(window.location.hash);
+    };
+
+    handleHashChange();
+
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("custom-hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("custom-hashchange", handleHashChange);
+    };
+  }, []);
+
   const linkItems = links.map((link) => (
     <NavLink
       key={link.label}
@@ -42,7 +59,7 @@ const Header = () => {
       <header className={styles.header}>
         <Container className={styles.inner} pe="xl">
           <NavLink
-            href="#"
+            href="#hero"
             className={styles.home_link}
             leftSection={
               <Image
