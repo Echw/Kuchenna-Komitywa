@@ -4,7 +4,7 @@ import WhySection from "@/components/WhySection";
 import AboutMeSection from "@/components/AboutMeSection";
 // import FoodSection from "@/components/FoodSection";
 import Gallery from "@/components/Gallery";
-// import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/ContactForm";
 // import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <AboutMeSection />
         {/* <FoodSection /> */}
         <Gallery />
-        {/* <ContactForm /> */}
+        <ContactForm />
       </main>
       {/* <Footer /> */}
     </>

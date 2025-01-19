@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Title, Text, Button, TextInput } from "@mantine/core";
+import { Title, Text, Button, TextInput, Textarea } from "@mantine/core";
 
 import styles from "./ContactForm.module.scss";
 import SectionContainer from "../common/SectionContainer";
@@ -15,35 +15,49 @@ const ContactForm = () => {
             Kontakt
           </Title>
           <Text pt={"xl"} c="white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor
+            Masz pytanie? Skontaktuj się z nami!
           </Text>
         </div>
+
         <div className={styles.form}>
-          <TextInput
-            label="Imię"
-            placeholder="Twoje imię"
-            required
-            w={"100%"}
-          />
-          <TextInput
-            label="E-mail"
-            placeholder="twoj@email.com"
-            required
-            w={"100%"}
-          />
-          <TextInput
-            label="Wiadomość"
-            placeholder="Wiadomość"
-            required
-            w={"100%"}
-          />
-          <Button
-            fullWidth
-            mt="xl"
-            bg="var(--mantine-color-orange-6)"
-            c="#31582B"
-          >
+          <div className={styles.line}>
+            <TextInput
+              placeholder=""
+              required
+              w={"100%"}
+              className={styles.input_name}
+              name="name"
+              label="Imię"
+            />
+          </div>
+          <div className={styles.line}>
+            <TextInput
+              placeholder=""
+              required
+              w={"100%"}
+              className={styles.input_email}
+              name="email"
+              label="   E-mail"
+            />
+          </div>
+          <div className={styles.line}>
+            <Textarea
+              placeholder=""
+              required
+              w={"100%"}
+              className={styles.input_message}
+              name="message"
+              label="Wiadomość"
+              minRows={1}
+              maxRows={10}
+              styles={{
+                input: {
+                  height: "200px",
+                },
+              }}
+            />
+          </div>
+          <Button fullWidth mt="xl" bg="var(--mantine-color-orange-6)" c="#31582B">
             Wyślij
           </Button>
         </div>

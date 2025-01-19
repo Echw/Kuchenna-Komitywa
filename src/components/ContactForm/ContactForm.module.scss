@@ -1,13 +1,21 @@
 .contact_form {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 268px 765px;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: rem(97px);
   position: relative;
-  margin-bottom: 10.75rem;
-  grid-auto-flow: column;
+  margin-bottom: 8rem;
+
+  h2 {
+    text-align: left;
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    align-items: center;
+    flex-direction: column;
+    gap: rem(40px);
+  }
 }
 
 .contact_description {
@@ -16,11 +24,44 @@
 
 .form {
   display: flex;
-  justify-content: flex-start;
-  align-items: start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   max-width: rem(626px);
   font-family: var(--Poppins);
   font-size: rem(24px);
   width: 100%;
+  gap: rem(15px);
+
+  .line {
+    position: relative;
+    width: 100%;
+
+    label {
+      // position: absolute;
+      top: 0;
+      left: 0;
+      // margin-left: 1rem;
+      margin-top: 0.5rem;
+      font-size: rem(16px);
+      color: #132b13;
+      z-index: 2;
+      font-weight: bold;
+      font-family: var(--Poppins);
+      pointer-events: none;
+    }
+
+    &:has(> .mantine-InputWrapper-root > .mantine-Input-wrapper > input:focus) {
+      background-color: red;
+      border: 2px solid red;
+    }
+
+    input:focus + label {
+      color: red;
+    }
+  }
+}
+
+.mantine-InputWrapper-root:has(.mantine-Input-wrapper > input:focus) .mantine-InputWrapper-label {
+  color: red !important;
 }
