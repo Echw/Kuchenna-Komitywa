@@ -3,11 +3,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { Card, Title, Image, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
-
-import SectionContainer from "../common/SectionContainer";
-import styles from "./FoodSection.module.scss";
-import foodData from "../../data/food-data.json";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
+
+import styles from "./FoodSection.module.scss";
+import SectionContainer from "../common/SectionContainer";
+import foodData from "../../data/food-data.json";
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 interface FoodItem {
   img: string;
@@ -136,9 +137,10 @@ const FoodSection = () => {
         >
           <div className={styles.content_wrapper}>
             <div className={styles.title_sticky}>
-              <Title order={2} c="var(--mantine-color-mainGreen-8)">
-                Jedzonka
-              </Title>
+              <SectionTitle
+                title="Jedzonka"
+                color="var(--mantine-color-mainGreen-8)"
+              />
             </div>
             <motion.div
               ref={containerRef}

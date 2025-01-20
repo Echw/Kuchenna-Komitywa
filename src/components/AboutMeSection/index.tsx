@@ -1,7 +1,8 @@
-import { Title, Image, Text } from "@mantine/core";
+import { Image, Text } from "@mantine/core";
 
 import styles from "./AboutMeSection.module.scss";
 import SectionContainer from "../common/SectionContainer";
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 const AboutMeSection = () => {
   return (
@@ -16,9 +17,7 @@ const AboutMeSection = () => {
           className={styles.about_me_img}
         />
         <div className={styles.about_me_description_container}>
-          <Title order={2} c="var(--mantine-color-orange-6)">
-            O mnie
-          </Title>
+          <SectionTitle title="O mnie" color="var(--mantine-color-orange-6)" />
           <Text pt={"xl"} c="white" className={styles.about_me_description}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

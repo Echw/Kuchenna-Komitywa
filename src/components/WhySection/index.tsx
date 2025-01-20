@@ -1,14 +1,16 @@
-import { Title, Text, Image } from "@mantine/core";
+import { Text, Image } from "@mantine/core";
 
-import SectionContainer from "../common/SectionContainer";
 import styles from "./WhySection.module.scss";
+import SectionContainer from "../common/SectionContainer";
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 const WhySection = () => {
   return (
     <SectionContainer id="why" backgroundColor="var(--mantine-color-white)">
-      <Title order={2} c="var(--mantine-color-mainGreen-8)">
-        Dlaczego kuchnia roślinna?
-      </Title>
+      <SectionTitle
+        title="Dlaczego kuchnia roślinna?"
+        color="var(--mantine-color-mainGreen-8)"
+      />
       <div className={styles.why_points}>
         <svg
           className={styles.why_path}
@@ -52,34 +54,34 @@ const WhySection = () => {
           <circle cx="950.5" cy="752.5" r="20.5" fill="white" />
           <circle cx="950.5" cy="752.5" r="10.5" fill="#F1753F" />
         </svg>
-        <Text className={styles.why_point}>
+        <Text fz="xl" lh="xl" className={styles.why_point}>
           <span>100% roślinne i naturalne składniki</span>
           <br />
           Wszystkie nasze produkty są w pełni wegańskie, bez sztucznych
           dodatków, konserwantów i barwników. Tworzymy je z najwyższej jakości
           składników, które są zdrowe i odżywcze.
         </Text>
-        <Text className={styles.why_point}>
+        <Text fz="xl" lh="xl" className={styles.why_point}>
           <span>Zrównoważona produkcja</span>
           <br />
           Działamy z myślą o środowisku, wykorzystując lokalne, sezonowe
           produkty i ograniczając zużycie plastiku.
         </Text>
-        <Text className={styles.why_point}>
+        <Text fz="xl" lh="xl" className={styles.why_point}>
           <span>Doskonały smak i różnorodność</span>
           <br />
           Nasze menu oferuje unikalne połączenia smaków, które zadowolą zarówno
           miłośników kuchni roślinnej, jak i tych, którzy dopiero odkrywają
           wegańskie jedzenie.
         </Text>
-        <Text className={styles.why_point}>
+        <Text fz="xl" lh="xl" className={styles.why_point}>
           <span>Korzystne ceny</span>
           <br />
           Oferujemy wegański catering w przystępnych cenach, bez kompromisów na
           jakości. Dzięki temu możesz cieszyć się zdrowymi, roślinnymi daniami
           bez nadwyrężania budżetu.
         </Text>
-        <Text className={styles.why_point}>
+        <Text fz="xl" lh="xl" className={styles.why_point}>
           <span>Wygoda i oszczędność czasu</span>
           <br />
           Nasze dania w słoikach są idealne dla osób, które chcą zdrowo jeść,

@@ -1,18 +1,17 @@
 "use client";
 
-import { Title, Text, Button, TextInput, Textarea } from "@mantine/core";
+import { Text, Button, TextInput, Textarea } from "@mantine/core";
 
 import styles from "./ContactForm.module.scss";
 import SectionContainer from "../common/SectionContainer";
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 const ContactForm = () => {
   return (
     <SectionContainer id="contact" backgroundColor="#31582B">
       <div className={styles.contact_form}>
         <div className={styles.contact_description}>
-          <Title order={2} c="var(--mantine-color-orange-6)">
-            Kontakt
-          </Title>
+          <SectionTitle title="Kontakt" color="var(--mantine-color-orange-6)" />
           <Text pt={"xl"} c="white">
             Masz pytanie? Skontaktuj się z nami!
           </Text>
