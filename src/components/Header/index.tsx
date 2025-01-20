@@ -2,15 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import {
-  Container,
-  Group,
-  Burger,
-  Drawer,
-  UnstyledButton,
-  NavLink,
-  rem,
-} from "@mantine/core";
+import { Container, Group, Burger, Drawer, NavLink, rem } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -32,7 +24,6 @@ const Header = () => {
 
   useEffect(() => {
     const handleHashChange = () => {
-      console.log(window.location.hash);
       setActive(window.location.hash);
     };
 
@@ -56,7 +47,7 @@ const Header = () => {
   const borderRadius = useTransform(
     scrollY,
     [0, 150],
-    ["0rem", "0 0 1rem 1rem"],
+    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"],
   );
   const boxShadow = useTransform(
     scrollY,
@@ -135,17 +126,24 @@ const Header = () => {
       >
         <Image src={`/assets/logo.svg`} alt="logo" width="127" height="116" />
         {links.map((link) => (
-          <UnstyledButton
+          <NavLink
             key={link.label}
-            onClick={() => {
-              setActive(link.link);
-              closeDrawer();
-            }}
+            href={link.link}
             className={styles.drawerLink}
             data-active={active === link.link || undefined}
-          >
-            {link.label}
-          </UnstyledButton>
+            onClick={() => {
+              closeDrawer();
+            }}
+            label={link.label}
+            styles={{
+              body: {
+                width: "auto",
+              },
+              description: {
+                display: "none",
+              },
+            }}
+          />
         ))}
       </Drawer>
     </>
