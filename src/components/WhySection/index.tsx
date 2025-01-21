@@ -1,4 +1,5 @@
-import { Text, Image } from "@mantine/core";
+import { Text, Image, Box } from "@mantine/core";
+import clsx from "clsx";
 
 import styles from "./WhySection.module.scss";
 import SectionContainer from "../common/SectionContainer";
@@ -54,40 +55,70 @@ const WhySection = () => {
           <circle cx="950.5" cy="752.5" r="20.5" fill="white" />
           <circle cx="950.5" cy="752.5" r="10.5" fill="#F1753F" />
         </svg>
-        <Text fz="xl" lh="xl" className={styles.why_point}>
-          <span>100% roślinne i naturalne składniki</span>
-          <br />
-          Wszystkie nasze produkty są w pełni wegańskie, bez sztucznych
-          dodatków, konserwantów i barwników. Tworzymy je z najwyższej jakości
-          składników, które są zdrowe i odżywcze.
-        </Text>
-        <Text fz="xl" lh="xl" className={styles.why_point}>
-          <span>Zrównoważona produkcja</span>
-          <br />
-          Działamy z myślą o środowisku, wykorzystując lokalne, sezonowe
-          produkty i ograniczając zużycie plastiku.
-        </Text>
-        <Text fz="xl" lh="xl" className={styles.why_point}>
-          <span>Doskonały smak i różnorodność</span>
-          <br />
-          Nasze menu oferuje unikalne połączenia smaków, które zadowolą zarówno
-          miłośników kuchni roślinnej, jak i tych, którzy dopiero odkrywają
-          wegańskie jedzenie.
-        </Text>
-        <Text fz="xl" lh="xl" className={styles.why_point}>
-          <span>Korzystne ceny</span>
-          <br />
-          Oferujemy wegański catering w przystępnych cenach, bez kompromisów na
-          jakości. Dzięki temu możesz cieszyć się zdrowymi, roślinnymi daniami
-          bez nadwyrężania budżetu.
-        </Text>
-        <Text fz="xl" lh="xl" className={styles.why_point}>
-          <span>Wygoda i oszczędność czasu</span>
-          <br />
-          Nasze dania w słoikach są idealne dla osób, które chcą zdrowo jeść,
-          ale nie mają czasu na codzienne gotowanie. Wystarczy je podgrzać i
-          cieszyć się pełnowartościowym posiłkiem w kilka minut.
-        </Text>
+        <Box className={styles.why_container}>
+          <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
+            100% roślinne i naturalne składniki
+          </Text>
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Wszystkie nasze produkty są w pełni wegańskie, bez sztucznych
+            dodatków, konserwantów i barwników. Tworzymy je z najwyższej jakości
+            składników, które są zdrowe i odżywcze.
+          </Text>
+        </Box>
+        <Box className={styles.why_container}>
+          <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
+            Zrównoważona produkcja
+          </Text>
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Działamy z myślą o środowisku, wykorzystując lokalne, sezonowe
+            produkty i ograniczając zużycie plastiku.
+          </Text>
+        </Box>
+        <Box className={styles.why_container}>
+          <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
+            Doskonały smak i różnorodność
+          </Text>
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Nasze menu oferuje unikalne połączenia smaków, które zadowolą
+            zarówno miłośników kuchni roślinnej, jak i tych, którzy dopiero
+            odkrywają wegańskie jedzenie.
+          </Text>
+        </Box>
+        <Box className={styles.why_container}>
+          <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
+            Korzystne ceny
+          </Text>
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Oferujemy wegański catering w przystępnych cenach, bez kompromisów
+            na jakości. Dzięki temu możesz cieszyć się zdrowymi, roślinnymi
+            daniami bez nadwyrężania budżetu.
+          </Text>
+        </Box>
+        <Box className={styles.why_container}>
+          <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
+            Wygoda i oszczędność czasu
+          </Text>
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Nasze dania w słoikach są idealne dla osób, które chcą zdrowo jeść,
+            ale nie mają czasu na codzienne gotowanie. Wystarczy je podgrzać i
+            cieszyć się pełnowartościowym posiłkiem w kilka minut.
+          </Text>
+        </Box>
       </div>
       <Image
         src={`/assets/why_1.png`}

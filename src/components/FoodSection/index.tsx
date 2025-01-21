@@ -129,7 +129,10 @@ const FoodSection = () => {
   };
 
   return (
-    <div ref={sectionRef} style={{ height: sectionHeight }}>
+    <div
+      ref={sectionRef}
+      style={{ height: sectionHeight, marginBottom: "-3rem" }}
+    >
       <div className={styles.sticky_container}>
         <SectionContainer
           id="foods"

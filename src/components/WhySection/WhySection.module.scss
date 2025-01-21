@@ -3,11 +3,11 @@
   position: relative;
   max-width: 585px;
   padding-bottom: rem(380px);
-  padding-top: rem(177px);
+  padding-top: rem(160px);
   grid-template-columns: auto;
   grid-template-rows: repeat(5, 1fr);
   display: grid;
-  grid-gap: 4.5rem;
+  grid-gap: 4.25em;
   margin: 0 auto;
 
   @media (max-width: $mantine-breakpoint-lg) {
@@ -20,6 +20,7 @@
   }
 
   @media (max-width: $mantine-breakpoint-sm) {
+    padding-top: rem(60px);
     padding-bottom: rem(100px);
   }
 }
@@ -36,30 +37,28 @@
   }
 }
 
-.why_point {
-  font-family: var(--Roboto);
-  font-size: rem(24px);
-  color: var(--mantine-color-mainGreen-9);
-  height: 100%;
-  align-content: center;
-}
-
-.why_point span {
-  font-weight: 900;
-  font-size: rem(32px);
-  text-wrap: nowrap;
-
-  @media (max-width: $mantine-breakpoint-sm) {
-    text-wrap: wrap;
-  }
-}
-
-.why_points p:nth-child(even) {
+.why_container:nth-child(even) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: end;
 
   @media (max-width: $mantine-breakpoint-md) {
     text-align: left;
   }
+}
+
+.why {
+  font-family: var(--Roboto);
+  font-weight: 900;
+  color: var(--mantine-color-mainGreen-9);
+}
+
+.why_description {
+  margin-top: 1rem;
+  font-family: var(--Roboto);
+  font-weight: 500;
+  color: var(--mantine-color-mainGreen-9);
 }
 
 .why_img {
@@ -118,7 +117,7 @@
     margin-right: auto;
     left: 0;
     right: 0;
-    bottom: 2%;
+    bottom: 5%;
   }
 
   @media (max-width: $mantine-breakpoint-sm) {

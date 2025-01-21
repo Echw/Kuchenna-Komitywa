@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle = ({ title, color }: SectionTitleProps) => {
   return (
-    <Title fz={{ base: 32, md: 48, lg: 56 }} order={2} c={color}>
+    <Title fz={{ base: 38, md: 48, lg: 56 }} order={2} c={color}>
       {title}
     </Title>
   );
