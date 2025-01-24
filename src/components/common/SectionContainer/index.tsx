@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { Box } from "@mantine/core";
-import { useInView, motion, useScroll, useTransform, progress } from "motion/react";
+import { useInView, motion, useScroll, useTransform } from "motion/react";
 
 import styles from "./SectionContainer.module.scss";
 
@@ -12,46 +12,32 @@ interface SectionContainerProps {
   children: React.ReactNode;
   backgroundColor?: string;
   className?: string;
-  ref?: React.RefObject<HTMLDivElement | null>;
-  range: [number, number];
-  targetScale: number;
-  progress: any;
-}
-
-function mergeRefs<T>(...refs: (React.Ref<T> | undefined)[]): React.RefCallback<T> {
-  return (node: T | null) => {
-    refs.forEach((ref) => {
-      if (typeof ref === "function") {
-        ref(node);
-      } else if (ref && typeof ref === "object") {
-        (ref as React.MutableRefObject<T | null>).current = node;
-      }
-    });
-  };
+  isFirstSection?: boolean;
 }
 
 const SectionContainer = ({
   id,
-  ref: externalRef,
   className,
   children,
   backgroundColor,
-  range,
-  targetScale,
-  progress,
+  isFirstSection,
 }: SectionContainerProps) => {
-  const internalRef = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
-    target: internalRef,
-    offset: ["start end", "start start"],
+    target: ref,
+    offset: isFirstSection ? ["end 5%", "start"] : ["end 10%", "end"],
   });
 
-  const scale = useTransform(progress, [0, 1], range, [targetScale, 1]);
-  const opacity = useTransform(progress, [0, 1], [1, 0]);
-  const filter = useTransform(progress, [0, 1], ["blur(0px)", "blur(30px)"]);
+  // const scale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [1, 0], [1, 0]);
+  const filter = useTransform(
+    scrollYProgress,
+    [1, 0],
+    ["blur(0px)", "blur(30px)"],
+  );
 
-  const isInView = useInView(internalRef, {
+  const isInView = useInView(ref, {
     margin: "-50% 0px -50% 0px",
     once: false,
   });
@@ -66,11 +52,11 @@ const SectionContainer = ({
   return (
     <Box
       id={id}
-      ref={mergeRefs(internalRef, externalRef)}
+      ref={ref}
       className={clsx(className, styles.box)}
       bg={backgroundColor}
     >
-      <motion.div style={{}} className={styles.container}>
+      <motion.div style={{ opacity, filter }} className={styles.container}>
         {children}
       </motion.div>
     </Box>
