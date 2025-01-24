@@ -31,7 +31,7 @@ const childVariants: Variants = {
 
 const Hero = () => {
   return (
-    <SectionContainer id="hero">
+    <>
       <Box className={styles.container}>
         <Group gap={2} className={styles.title_group}>
           <Title order={1} className={clsx(styles.title, styles.title1)}>
@@ -42,17 +42,12 @@ const Hero = () => {
         </Group>
         <Group className={styles.subtitle_group}>
           <div className={styles.subtitle_background}></div>
-          <Title
-            order={2}
-            size="h2"
-            className={clsx(styles.title, styles.title2)}
-          >
+          <Title order={2} size="h2" className={clsx(styles.title, styles.title2)}>
             Komitywa
           </Title>
         </Group>
         <Text className={styles.description} size="xl" mt="xl">
-          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
-          cras.
+          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non cras.
         </Text>
         <ScrollIcon />
       </Box>
@@ -87,7 +82,7 @@ const Hero = () => {
           );
         })}
       </motion.div>
-    </SectionContainer>
+    </>
   );
 };
 

@@ -32,9 +32,7 @@ const FoodSection = () => {
     const calculateDimensions = () => {
       if (!containerRef.current) return;
 
-      const cards = containerRef.current.getElementsByClassName(
-        styles.small_card,
-      );
+      const cards = containerRef.current.getElementsByClassName(styles.small_card);
       if (!cards.length) return;
 
       const firstCard = cards[0] as HTMLElement;
@@ -59,9 +57,7 @@ const FoodSection = () => {
     const handleScroll = () => {
       if (!containerRef.current) return;
 
-      const cards = containerRef.current.getElementsByClassName(
-        styles.small_card,
-      );
+      const cards = containerRef.current.getElementsByClassName(styles.small_card);
       const viewportCenter = window.innerWidth / 2;
       const threshold = 100;
       let centerIndex = -1;
@@ -77,10 +73,7 @@ const FoodSection = () => {
       });
 
       if (centerIndex !== -1) {
-        const newCenteredCards = Array.from(
-          { length: centerIndex + 1 },
-          (_, i) => i,
-        );
+        const newCenteredCards = Array.from({ length: centerIndex + 1 }, (_, i) => i);
         setCenteredCards(newCenteredCards);
       }
     };
@@ -129,44 +122,31 @@ const FoodSection = () => {
   };
 
   return (
-    <div
-      ref={sectionRef}
-      style={{ height: sectionHeight, marginBottom: "-3rem" }}
-    >
+    <div ref={sectionRef} style={{ height: sectionHeight, marginBottom: "-3rem" }}>
       <div className={styles.sticky_container}>
-        <SectionContainer
-          id="foods"
-          backgroundColor="var(--mantine-color-mainGreen-10)"
-        >
-          <div className={styles.content_wrapper}>
-            <div className={styles.title_sticky}>
-              <SectionTitle
-                title="Jedzonka"
-                color="var(--mantine-color-mainGreen-8)"
-              />
-            </div>
-            <motion.div
-              ref={containerRef}
-              className={styles.cards_section}
-              style={{ x }}
-              variants={container}
-              initial="hidden"
-              animate={isInView ? "show" : "hidden"}
-            >
-              {(foodData as FoodData).food.map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariant}
-                  className={`${
-                    centeredCards.includes(index) ? styles.centered : ""
-                  }`}
-                >
-                  <FoodCard item={item} />
-                </motion.div>
-              ))}
-            </motion.div>
+        <div className={styles.content_wrapper}>
+          <div className={styles.title_sticky}>
+            <SectionTitle title="Jedzonka" color="var(--mantine-color-mainGreen-8)" />
           </div>
-        </SectionContainer>
+          <motion.div
+            ref={containerRef}
+            className={styles.cards_section}
+            style={{ x }}
+            variants={container}
+            initial="hidden"
+            animate={isInView ? "show" : "hidden"}
+          >
+            {(foodData as FoodData).food.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariant}
+                className={`${centeredCards.includes(index) ? styles.centered : ""}`}
+              >
+                <FoodCard item={item} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -176,17 +156,9 @@ const FoodCard = ({ item }: { item: FoodItem }) => {
   return (
     <Card radius="xl" className={styles.small_card}>
       <div className={styles.image_container}>
-        <Image
-          src={item.img}
-          alt={item.name.toLowerCase()}
-          className={styles.small_card_img}
-        />
+        <Image src={item.img} alt={item.name.toLowerCase()} className={styles.small_card_img} />
       </div>
-      <Title
-        order={3}
-        className={styles.small_card_title}
-        c="var(--mantine-color-orange-6)"
-      >
+      <Title order={3} className={styles.small_card_title} c="var(--mantine-color-orange-6)">
         {item.name}
       </Title>
       <List
@@ -195,12 +167,7 @@ const FoodCard = ({ item }: { item: FoodItem }) => {
         size="sm"
         center
         icon={
-          <ThemeIcon
-            c="var(--mantine-color-mainGreen-7)"
-            bg="transparent"
-            size={24}
-            radius="xl"
-          >
+          <ThemeIcon c="var(--mantine-color-mainGreen-7)" bg="transparent" size={24} radius="xl">
             <IconSeedingFilled style={{ width: rem(16), height: rem(16) }} />
           </ThemeIcon>
         }

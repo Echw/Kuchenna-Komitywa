@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { Box } from "@mantine/core";
-import { useInView } from "motion/react";
+import { useInView, motion, useScroll, useTransform, progress } from "motion/react";
 
 import styles from "./SectionContainer.module.scss";
 
@@ -13,11 +13,12 @@ interface SectionContainerProps {
   backgroundColor?: string;
   className?: string;
   ref?: React.RefObject<HTMLDivElement | null>;
+  range: [number, number];
+  targetScale: number;
+  progress: any;
 }
 
-function mergeRefs<T>(
-  ...refs: (React.Ref<T> | undefined)[]
-): React.RefCallback<T> {
+function mergeRefs<T>(...refs: (React.Ref<T> | undefined)[]): React.RefCallback<T> {
   return (node: T | null) => {
     refs.forEach((ref) => {
       if (typeof ref === "function") {
@@ -35,8 +36,20 @@ const SectionContainer = ({
   className,
   children,
   backgroundColor,
+  range,
+  targetScale,
+  progress,
 }: SectionContainerProps) => {
   const internalRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: internalRef,
+    offset: ["start end", "start start"],
+  });
+
+  const scale = useTransform(progress, [0, 1], range, [targetScale, 1]);
+  const opacity = useTransform(progress, [0, 1], [1, 0]);
+  const filter = useTransform(progress, [0, 1], ["blur(0px)", "blur(30px)"]);
 
   const isInView = useInView(internalRef, {
     margin: "-50% 0px -50% 0px",
@@ -57,7 +70,9 @@ const SectionContainer = ({
       className={clsx(className, styles.box)}
       bg={backgroundColor}
     >
-      <Box className={styles.container}>{children}</Box>
+      <motion.div style={{}} className={styles.container}>
+        {children}
+      </motion.div>
     </Box>
   );
 };
