@@ -1,4 +1,3 @@
-import SectionContainer from "../common/SectionContainer";
 import { Group, Image } from "@mantine/core";
 import galleryData from "../../data/gallery-data.json";
 
@@ -17,7 +16,13 @@ const Gallery = () => {
   return (
     <Group className={styles.gallery_wrapper}>
       {(galleryData as GalleryData).gallery.map((item, index) => (
-        <Image src={item.img} alt={item.alt} key={index} fit="cover" height={"100%"} />
+        <Image
+          src={item.img}
+          alt={item.alt}
+          key={index}
+          fit="cover"
+          height={"100%"}
+        />
       ))}
     </Group>
   );

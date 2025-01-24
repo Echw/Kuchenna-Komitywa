@@ -3,7 +3,6 @@
 import { Text, Button, TextInput, Textarea } from "@mantine/core";
 
 import styles from "./ContactForm.module.scss";
-import SectionContainer from "../common/SectionContainer";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 const ContactForm = () => {
@@ -54,7 +53,12 @@ const ContactForm = () => {
             }}
           />
         </div>
-        <Button fullWidth mt="xl" bg="var(--mantine-color-orange-6)" c="#31582B">
+        <Button
+          fullWidth
+          mt="xl"
+          bg="var(--mantine-color-orange-6)"
+          c="#31582B"
+        >
           Wyślij
         </Button>
       </div>

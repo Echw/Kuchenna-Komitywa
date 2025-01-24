@@ -2,13 +2,15 @@ import { Text, Image, Box } from "@mantine/core";
 import clsx from "clsx";
 
 import styles from "./WhySection.module.scss";
-import SectionContainer from "../common/SectionContainer";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 const WhySection = () => {
   return (
     <>
-      <SectionTitle title="Dlaczego kuchnia roślinna?" color="var(--mantine-color-mainGreen-8)" />
+      <SectionTitle
+        title="Dlaczego kuchnia roślinna?"
+        color="var(--mantine-color-mainGreen-8)"
+      />
       <div className={styles.why_points}>
         <svg
           className={styles.why_path}
@@ -56,55 +58,103 @@ const WhySection = () => {
           <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
             100% roślinne i naturalne składniki
           </Text>
-          <Text fz={{ base: 20, md: 22 }} className={clsx(styles.why, styles.why_description)}>
-            Wszystkie nasze produkty są w pełni wegańskie, bez sztucznych dodatków, konserwantów i
-            barwników. Tworzymy je z najwyższej jakości składników, które są zdrowe i odżywcze.
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Wszystkie nasze produkty są w pełni wegańskie, bez sztucznych
+            dodatków, konserwantów i barwników. Tworzymy je z najwyższej jakości
+            składników, które są zdrowe i odżywcze.
           </Text>
         </Box>
         <Box className={styles.why_container}>
           <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
             Zrównoważona produkcja
           </Text>
-          <Text fz={{ base: 20, md: 22 }} className={clsx(styles.why, styles.why_description)}>
-            Działamy z myślą o środowisku, wykorzystując lokalne, sezonowe produkty i ograniczając
-            zużycie plastiku.
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Działamy z myślą o środowisku, wykorzystując lokalne, sezonowe
+            produkty i ograniczając zużycie plastiku.
           </Text>
         </Box>
         <Box className={styles.why_container}>
           <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
             Doskonały smak i różnorodność
           </Text>
-          <Text fz={{ base: 20, md: 22 }} className={clsx(styles.why, styles.why_description)}>
-            Nasze menu oferuje unikalne połączenia smaków, które zadowolą zarówno miłośników kuchni
-            roślinnej, jak i tych, którzy dopiero odkrywają wegańskie jedzenie.
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Nasze menu oferuje unikalne połączenia smaków, które zadowolą
+            zarówno miłośników kuchni roślinnej, jak i tych, którzy dopiero
+            odkrywają wegańskie jedzenie.
           </Text>
         </Box>
         <Box className={styles.why_container}>
           <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
             Korzystne ceny
           </Text>
-          <Text fz={{ base: 20, md: 22 }} className={clsx(styles.why, styles.why_description)}>
-            Oferujemy wegański catering w przystępnych cenach, bez kompromisów na jakości. Dzięki
-            temu możesz cieszyć się zdrowymi, roślinnymi daniami bez nadwyrężania budżetu.
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Oferujemy wegański catering w przystępnych cenach, bez kompromisów
+            na jakości. Dzięki temu możesz cieszyć się zdrowymi, roślinnymi
+            daniami bez nadwyrężania budżetu.
           </Text>
         </Box>
         <Box className={styles.why_container}>
           <Text fz={{ base: 24, md: 32 }} lh="xl" className={styles.why}>
             Wygoda i oszczędność czasu
           </Text>
-          <Text fz={{ base: 20, md: 22 }} className={clsx(styles.why, styles.why_description)}>
-            Nasze dania w słoikach są idealne dla osób, które chcą zdrowo jeść, ale nie mają czasu
-            na codzienne gotowanie. Wystarczy je podgrzać i cieszyć się pełnowartościowym posiłkiem
-            w kilka minut.
+          <Text
+            fz={{ base: 20, md: 22 }}
+            className={clsx(styles.why, styles.why_description)}
+          >
+            Nasze dania w słoikach są idealne dla osób, które chcą zdrowo jeść,
+            ale nie mają czasu na codzienne gotowanie. Wystarczy je podgrzać i
+            cieszyć się pełnowartościowym posiłkiem w kilka minut.
           </Text>
         </Box>
       </div>
-      <Image src={`/assets/why_1.png`} alt="leafs" w={135} className={styles.why_img} />
-      <Image src={`/assets/why_2.png`} alt="leafs" w={305} className={styles.why_img} />
-      <Image src={`/assets/why_3.png`} alt="leafs" w={116} className={styles.why_img} />
-      <Image src={`/assets/why_4.png`} alt="leafs" w={166} className={styles.why_img} />
-      <Image src={`/assets/why_5.png`} alt="leafs" w={285} className={styles.why_img} />
-      <Image src={`/assets/why_6.png`} alt="leafs" w={423} className={styles.why_img} />
+      <Image
+        src={`/assets/why_1.png`}
+        alt="leafs"
+        w={135}
+        className={styles.why_img}
+      />
+      <Image
+        src={`/assets/why_2.png`}
+        alt="leafs"
+        w={305}
+        className={styles.why_img}
+      />
+      <Image
+        src={`/assets/why_3.png`}
+        alt="leafs"
+        w={116}
+        className={styles.why_img}
+      />
+      <Image
+        src={`/assets/why_4.png`}
+        alt="leafs"
+        w={166}
+        className={styles.why_img}
+      />
+      <Image
+        src={`/assets/why_5.png`}
+        alt="leafs"
+        w={285}
+        className={styles.why_img}
+      />
+      <Image
+        src={`/assets/why_6.png`}
+        alt="leafs"
+        w={423}
+        className={styles.why_img}
+      />
     </>
   );
 };

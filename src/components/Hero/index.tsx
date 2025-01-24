@@ -5,7 +5,6 @@ import { Variants, motion } from "motion/react";
 import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
-import SectionContainer from "../common/SectionContainer";
 import { ScrollIcon } from "./ScrollIcon";
 
 const containerVariants: Variants = {
@@ -42,12 +41,17 @@ const Hero = () => {
         </Group>
         <Group className={styles.subtitle_group}>
           <div className={styles.subtitle_background}></div>
-          <Title order={2} size="h2" className={clsx(styles.title, styles.title2)}>
+          <Title
+            order={2}
+            size="h2"
+            className={clsx(styles.title, styles.title2)}
+          >
             Komitywa
           </Title>
         </Group>
         <Text className={styles.description} size="xl" mt="xl">
-          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non cras.
+          Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
+          cras.
         </Text>
         <ScrollIcon />
       </Box>
