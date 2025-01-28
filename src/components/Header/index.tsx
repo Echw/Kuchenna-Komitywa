@@ -77,7 +77,7 @@ const Header = () => {
       >
         <Container className={styles.inner}>
           <NavLink
-            href="#hero"
+            href="#"
             className={styles.home_link}
             leftSection={
               <Image

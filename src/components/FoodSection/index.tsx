@@ -6,7 +6,6 @@ import { IconSeedingFilled } from "@tabler/icons-react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 
 import styles from "./FoodSection.module.scss";
-import SectionContainer from "../common/SectionContainer";
 import foodData from "../../data/food-data.json";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 
@@ -131,42 +130,36 @@ const FoodSection = () => {
   return (
     <div
       ref={sectionRef}
-      style={{ height: sectionHeight, marginBottom: "-3rem" }}
+      style={{ height: sectionHeight }}
+      className={styles.wrapper}
     >
-      <div className={styles.sticky_container}>
-        <SectionContainer
-          id="foods"
-          backgroundColor="var(--mantine-color-mainGreen-10)"
-        >
-          <div className={styles.content_wrapper}>
-            <div className={styles.title_sticky}>
-              <SectionTitle
-                title="Jedzonka"
-                color="var(--mantine-color-mainGreen-8)"
-              />
-            </div>
-            <motion.div
-              ref={containerRef}
-              className={styles.cards_section}
-              style={{ x }}
-              variants={container}
-              initial="hidden"
-              animate={isInView ? "show" : "hidden"}
-            >
-              {(foodData as FoodData).food.map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariant}
-                  className={`${
-                    centeredCards.includes(index) ? styles.centered : ""
-                  }`}
-                >
-                  <FoodCard item={item} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </SectionContainer>
+      <div className={styles.sticky}>
+        <SectionTitle
+          title="Jedzonka"
+          color="var(--mantine-color-mainGreen-8)"
+        />
+        <div className={styles.cards_section_overflow}>
+          <motion.div
+            ref={containerRef}
+            className={styles.cards_section}
+            style={{ x }}
+            variants={container}
+            initial="hidden"
+            animate={isInView ? "show" : "hidden"}
+          >
+            {(foodData as FoodData).food.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariant}
+                className={`${
+                  centeredCards.includes(index) ? styles.centered : ""
+                }`}
+              >
+                <FoodCard item={item} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );

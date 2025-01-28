@@ -1,5 +1,4 @@
 .box {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,20 +6,20 @@
   margin-bottom: -3rem;
   border-radius: var(--mantine-radius-xl);
   position: relative;
-  overflow: hidden;
+
+  // Shit does not allow to have vertical scrolling effect
+  // overflow: hidden;
+
+  // Overlapping sections with sticky positioning
+  // position: sticky;
+  // top: 0;
 }
 
 .container {
-  // border: 1px solid black;
   margin: 0 auto;
   max-width: 1920px;
   width: 100%;
-  position: relative;
   padding: rem(160px) 2rem 1rem;
-
-  h2 {
-    text-align: center;
-  }
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: 5rem 1rem 1rem;
@@ -30,15 +29,19 @@
 .box_gallery {
   padding: 0;
   overflow: hidden;
+
+  & > div {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .box_footer {
   border-radius: var(--mantine-radius-xl) var(--mantine-radius-xl) 0 0;
 }
 
-.box_gallery > div {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: none;
+.overflow_hidden {
+  overflow: hidden;
 }

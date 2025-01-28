@@ -5,7 +5,6 @@ import { Variants, motion } from "motion/react";
 import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
-import SectionContainer from "../common/SectionContainer";
 import { ScrollIcon } from "./ScrollIcon";
 
 const containerVariants: Variants = {
@@ -31,7 +30,7 @@ const childVariants: Variants = {
 
 const Hero = () => {
   return (
-    <SectionContainer id="hero">
+    <>
       <Box className={styles.container}>
         <Group gap={2} className={styles.title_group}>
           <Title order={1} className={clsx(styles.title, styles.title1)}>
@@ -87,7 +86,7 @@ const Hero = () => {
           );
         })}
       </motion.div>
-    </SectionContainer>
+    </>
   );
 };
 

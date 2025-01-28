@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { Box } from "@mantine/core";
-import { useInView } from "motion/react";
+import { useInView, motion, useScroll, useTransform } from "motion/react";
 
 import styles from "./SectionContainer.module.scss";
 
@@ -12,33 +12,31 @@ interface SectionContainerProps {
   children: React.ReactNode;
   backgroundColor?: string;
   className?: string;
-  ref?: React.RefObject<HTMLDivElement | null>;
-}
-
-function mergeRefs<T>(
-  ...refs: (React.Ref<T> | undefined)[]
-): React.RefCallback<T> {
-  return (node: T | null) => {
-    refs.forEach((ref) => {
-      if (typeof ref === "function") {
-        ref(node);
-      } else if (ref && typeof ref === "object") {
-        (ref as React.MutableRefObject<T | null>).current = node;
-      }
-    });
-  };
+  isFirstSection?: boolean;
 }
 
 const SectionContainer = ({
   id,
-  ref: externalRef,
   className,
   children,
   backgroundColor,
+  isFirstSection,
 }: SectionContainerProps) => {
-  const internalRef = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
-  const isInView = useInView(internalRef, {
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: isFirstSection ? ["end 10%", "start"] : ["end 5%", "end 75%"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0.7, 0], [1, 0]);
+  const filter = useTransform(
+    scrollYProgress,
+    [0.7, 0],
+    ["blur(0px)", "blur(30px)"],
+  );
+
+  const isInView = useInView(ref, {
     margin: "-50% 0px -50% 0px",
     once: false,
   });
@@ -53,11 +51,13 @@ const SectionContainer = ({
   return (
     <Box
       id={id}
-      ref={mergeRefs(internalRef, externalRef)}
+      ref={ref}
       className={clsx(className, styles.box)}
       bg={backgroundColor}
     >
-      <Box className={styles.container}>{children}</Box>
+      <motion.div style={{ opacity, filter }} className={styles.container}>
+        {children}
+      </motion.div>
     </Box>
   );
 };

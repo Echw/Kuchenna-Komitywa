@@ -7,7 +7,6 @@ import clsx from "clsx";
 
 import styles from "./WhySection.module.scss";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
-import SectionContainer from "../common/SectionContainer";
 
 const images = [
   { src: "/assets/why_section/leaf_1.png", alt: "leafs 1", width: 135 },
@@ -107,11 +106,7 @@ const WhySection = () => {
   }, []);
 
   return (
-    <SectionContainer
-      id="why"
-      backgroundColor="var(--mantine-color-white)"
-      ref={containerRef}
-    >
+    <div ref={containerRef}>
       <SectionTitle
         title="Dlaczego kuchnia roślinna?"
         color="var(--mantine-color-mainGreen-8)"
@@ -211,7 +206,7 @@ const WhySection = () => {
           className={styles.img}
         />
       ))}
-    </SectionContainer>
+    </div>
   );
 };
 
