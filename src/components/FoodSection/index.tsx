@@ -130,16 +130,15 @@ const FoodSection = () => {
   return (
     <div
       ref={sectionRef}
-      style={{ height: sectionHeight, marginBottom: "-3rem" }}
+      style={{ height: sectionHeight }}
+      className={styles.wrapper}
     >
-      <div className={styles.sticky_container}>
-        <div className={styles.content_wrapper}>
-          <div className={styles.title_sticky}>
-            <SectionTitle
-              title="Jedzonka"
-              color="var(--mantine-color-mainGreen-8)"
-            />
-          </div>
+      <div className={styles.sticky}>
+        <SectionTitle
+          title="Jedzonka"
+          color="var(--mantine-color-mainGreen-8)"
+        />
+        <div className={styles.cards_section_overflow}>
           <motion.div
             ref={containerRef}
             className={styles.cards_section}

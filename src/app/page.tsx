@@ -17,7 +17,11 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <SectionContainer id="hero" isFirstSection>
+        <SectionContainer
+          id="hero"
+          isFirstSection
+          className={sectionContainerStyles.overflow_hidden}
+        >
           <Hero />
         </SectionContainer>
         <SectionContainer id="why" backgroundColor="var(--mantine-color-white)">

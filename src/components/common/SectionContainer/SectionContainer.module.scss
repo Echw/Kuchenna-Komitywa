@@ -6,22 +6,20 @@
   margin-bottom: -3rem;
   border-radius: var(--mantine-radius-xl);
   position: relative;
+
+  // Shit does not allow to have vertical scrolling effect
+  // overflow: hidden;
+
+  // Overlapping sections with sticky positioning
   // position: sticky;
   // top: 0;
-  overflow: hidden;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1920px;
   width: 100%;
-  position: sticky;
-  top: 0;
   padding: rem(160px) 2rem 1rem;
-
-  h2 {
-    text-align: center;
-  }
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: 5rem 1rem 1rem;
@@ -42,4 +40,8 @@
 
 .box_footer {
   border-radius: var(--mantine-radius-xl) var(--mantine-radius-xl) 0 0;
+}
+
+.overflow_hidden {
+  overflow: hidden;
 }
