@@ -26,14 +26,13 @@ const SectionContainer = ({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: isFirstSection ? ["end 5%", "start"] : ["end 10%", "end"],
+    offset: isFirstSection ? ["end 10%", "start"] : ["end 5%", "end 75%"],
   });
 
-  // const scale = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const opacity = useTransform(scrollYProgress, [1, 0], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0.7, 0], [1, 0]);
   const filter = useTransform(
     scrollYProgress,
-    [1, 0],
+    [0.7, 0],
     ["blur(0px)", "blur(30px)"],
   );
 
