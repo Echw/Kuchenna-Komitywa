@@ -1,4 +1,4 @@
-.why_points {
+.points {
   height: 100%;
   position: relative;
   max-width: 585px;
@@ -25,7 +25,7 @@
   }
 }
 
-.why_path {
+.path {
   width: 180%;
   position: absolute;
   grid-area: 1 / 1 / 6 / 2;
@@ -37,7 +37,7 @@
   }
 }
 
-.why_container:nth-child(even) {
+.text_container:nth-child(even) {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,79 +48,80 @@
   }
 }
 
-.why {
+.text {
   font-family: var(--Roboto);
+  color: var(--mantine-color-mainGreen-9);
+}
+
+.title {
   font-weight: 900;
-  color: var(--mantine-color-mainGreen-9);
 }
 
-.why_description {
+.description {
   margin-top: 1rem;
-  font-family: var(--Roboto);
   font-weight: 500;
-  color: var(--mantine-color-mainGreen-9);
 }
 
-.why_img {
+.img {
   position: absolute;
 
   @media (max-width: $mantine-breakpoint-lg) {
     display: none;
   }
-}
 
-.why_img:nth-of-type(1) {
-  left: 77%;
-  top: 15%;
-  transform: rotate(-25deg);
+  &:nth-of-type(1) {
+    left: 80%;
+    top: 15%;
+    transform: rotate(-25deg);
 
-  @media (max-width: $mantine-breakpoint-lg) {
-    display: block;
-    top: 12%;
+    @media (max-width: $mantine-breakpoint-lg) {
+      display: block;
+      top: 12%;
+    }
+
+    @media (max-width: $mantine-breakpoint-sm) {
+      display: none;
+    }
   }
 
-  @media (max-width: $mantine-breakpoint-sm) {
-    display: none;
+  &:nth-of-type(2) {
+    left: 1%;
+    top: 14%;
+    transform: rotate(145deg);
   }
-}
 
-.why_img:nth-of-type(2) {
-  left: 1%;
-  top: 14%;
-  transform: rotate(145deg);
-}
+  &:nth-of-type(3) {
+    right: 10%;
+    top: 41%;
+  }
 
-.why_img:nth-of-type(3) {
-  right: 12%;
-  top: 43%;
-}
+  &:nth-of-type(4) {
+    right: 1%;
+    top: 35%;
+  }
 
-.why_img:nth-of-type(4) {
-  right: 3%;
-  top: 37%;
-}
+  &:nth-of-type(5) {
+    left: 3%;
+    top: 44%;
+  }
 
-.why_img:nth-of-type(5) {
-  left: 3%;
-  top: 44%;
-}
-
-.why_img:nth-of-type(6) {
-  right: 0;
-  bottom: 4%;
-  left: auto;
-  transform: rotate(118deg);
-
-  @media (max-width: $mantine-breakpoint-lg) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
+  &:nth-of-type(6) {
     right: 0;
-    bottom: 5%;
-  }
+    bottom: 4%;
+    left: auto;
+    transform: rotate(118deg);
 
-  @media (max-width: $mantine-breakpoint-sm) {
-    display: none;
+    @media (max-width: $mantine-breakpoint-lg) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      bottom: 5%;
+    }
+
+    @media (max-width: $mantine-breakpoint-sm) {
+      display: none;
+    }
   }
 }
