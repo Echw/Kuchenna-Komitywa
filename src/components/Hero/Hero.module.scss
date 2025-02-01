@@ -18,6 +18,13 @@
   @media (max-width: $mantine-breakpoint-xs) {
     padding-left: 0;
     align-items: center;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 
@@ -86,6 +93,7 @@
 .subtitle_group {
   margin-left: 1rem;
   position: relative;
+  width: fit-content;
 
   @media (max-width: $mantine-breakpoint-xs) {
     margin-left: 0;
@@ -209,7 +217,7 @@
   color: #fff;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    bottom: 19%;
+    bottom: 19% !important;
     width: 100px;
   }
 }
