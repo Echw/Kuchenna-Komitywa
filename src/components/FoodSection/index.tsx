@@ -59,7 +59,7 @@ const FoodSection = () => {
 
   const isInView = useInView(containerRef, {
     once: true,
-    margin: isMobile ? "50px" : "-200px",
+    margin: isMobile ? "-100px" : "-200px",
   });
 
   useLayoutEffect(() => {
@@ -134,7 +134,11 @@ const FoodSection = () => {
     offset: ["start start", `${containerWidth}px end`],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], [0, -containerWidth + 350]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -containerWidth + (isMobile ? 100 : 350)],
+  );
 
   return (
     <div
