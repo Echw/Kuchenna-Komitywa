@@ -12,6 +12,7 @@
 
   @media (max-width: $mantine-breakpoint-lg) {
     padding-bottom: rem(450px);
+    grid-template-rows: none;
   }
 
   @media (max-width: $mantine-breakpoint-md) {
@@ -37,14 +38,18 @@
   }
 }
 
-.text_container:nth-child(even) {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: end;
+.text_container {
+  align-self: center;
 
-  @media (max-width: $mantine-breakpoint-md) {
-    text-align: left;
+  &:nth-child(even) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: end;
+
+    @media (max-width: $mantine-breakpoint-md) {
+      text-align: left;
+    }
   }
 }
 
@@ -106,7 +111,7 @@
   }
 
   &:nth-of-type(6) {
-    right: 0;
+    right: 4%;
     bottom: 4%;
     left: auto;
     transform: rotate(118deg);
