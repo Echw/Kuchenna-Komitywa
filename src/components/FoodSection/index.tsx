@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { Card, Title, Image, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
+import { useMediaQuery } from "@mantine/hooks";
 
 import styles from "./FoodSection.module.scss";
 import foodData from "../../data/food-data.json";
@@ -19,18 +20,53 @@ interface FoodData {
   food: FoodItem[];
 }
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: {
+    x: "100%",
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 20,
+    },
+  },
+};
+
 const FoodSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const [centeredCards, setCenteredCards] = useState<number[]>([]);
   const [sectionHeight, setSectionHeight] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
-  const isInView = useInView(containerRef, { once: true, margin: "-200px" });
-  const [centeredCards, setCenteredCards] = useState<number[]>([]);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const isInView = useInView(containerRef, {
+    once: true,
+    margin: isMobile ? "50px" : "-200px",
+  });
 
   useLayoutEffect(() => {
     const calculateDimensions = () => {
       if (!containerRef.current) return;
 
+      const isMobile = window.innerWidth < 768;
       const cards = containerRef.current.getElementsByClassName(
         styles.small_card,
       );
@@ -44,10 +80,10 @@ const FoodSection = () => {
       const gap = parseInt(gapString, 10);
 
       const viewportWidth = window.innerWidth;
-
       const centerOffset = (viewportWidth - cardWidth) / 2;
       const totalCardsWidth = (cardWidth + gap) * cards.length - gap;
-      const scrollDistance = totalCardsWidth - centerOffset;
+      const scrollDistance =
+        totalCardsWidth - (isMobile ? viewportWidth / 2 : centerOffset);
 
       const calculatedWidth = Math.max(0, scrollDistance);
 
@@ -62,7 +98,7 @@ const FoodSection = () => {
         styles.small_card,
       );
       const viewportCenter = window.innerWidth / 2;
-      const threshold = 100;
+      const threshold = window.innerWidth < 768 ? 50 : 100;
       let centerIndex = -1;
 
       Array.from(cards).forEach((card, index) => {
@@ -99,33 +135,6 @@ const FoodSection = () => {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], [0, -containerWidth + 350]);
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const cardVariant = {
-    hidden: {
-      x: "100%",
-      opacity: 0,
-    },
-    show: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-      },
-    },
-  };
 
   return (
     <div
