@@ -11,8 +11,8 @@ import SectionTitle from "../common/SectionTitle/SectionTitle";
 const Footer = () => {
   return (
     <SectionContainer
-      className={sectionContainerStyles.box_footer}
-      id="ContactForm"
+      className={sectionContainerStyles.footer}
+      id="footer"
       backgroundColor="var(--mantine-color-mainGreen-9)"
     >
       <footer className={styles.footer}>

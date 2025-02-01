@@ -46,6 +46,11 @@ const SectionContainer = ({
       window.history.pushState(null, "", `#${id}`);
       window.dispatchEvent(new Event("custom-hashchange"));
     }
+
+    if (!isInView && id === "why" && window.location.hash === "#why") {
+      window.history.pushState(null, "", `#hero`);
+      window.dispatchEvent(new Event("custom-hashchange"));
+    }
   }, [isInView, id]);
 
   return (

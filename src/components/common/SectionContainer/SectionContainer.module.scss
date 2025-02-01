@@ -1,3 +1,9 @@
+.sections {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .box {
   display: flex;
   flex-direction: column;
@@ -26,7 +32,7 @@
   }
 }
 
-.box_gallery {
+.gallery {
   padding: 0;
   overflow: hidden;
 
@@ -38,10 +44,17 @@
   }
 }
 
-.box_footer {
+.footer {
   border-radius: var(--mantine-radius-xl) var(--mantine-radius-xl) 0 0;
+  position: sticky;
+  bottom: 0;
+  z-index: -1;
 }
 
-.overflow_hidden {
+.hero {
+  top: 1;
   overflow: hidden;
+  position: sticky;
+  top: 4rem;
+  z-index: 1;
 }
