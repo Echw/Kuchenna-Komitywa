@@ -41,11 +41,11 @@
 
 .cards_section_overflow {
   overflow: hidden;
-  width: 100vw;
-  margin-left: -2rem;
+  // width: 100vw;
+  // margin-left: -2rem;
 
   @media (max-width: 768px) {
-    width: calc(100vw + 1rem);
+    // width: calc(100vw + 1rem);
   }
 }
 
