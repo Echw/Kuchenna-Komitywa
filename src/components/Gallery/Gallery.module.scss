@@ -55,3 +55,27 @@
 .spacer {
   width: 100%;
 }
+
+@media (max-width: $mantine-breakpoint-md) {
+  .base {
+    flex-direction: column;
+  }
+
+  .base_right {
+    display: none;
+  }
+
+  .base_left {
+    width: 100%;
+  }
+
+  .overlap_image {
+    width: 100%;
+  }
+
+  .left,
+  .right {
+    left: 0;
+    right: 0;
+  }
+}

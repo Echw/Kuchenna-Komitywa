@@ -1,5 +1,6 @@
-import { useRef } from "react";
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { useMemo, useRef } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
 
 import galleryData from "../../data/gallery-data.json";
@@ -16,8 +17,11 @@ interface GalleryData {
 
 /**
  * OverlapImage
- * Each overlapping image uses a portion of the overall scroll progress to animate its
- * vertical position from below (100vh) to its final position (0vh).
+ *
+ * Each overlapping image uses a portion of the overall scroll progress
+ * to animate its vertical position from offscreen at the bottom ("100vh")
+ * to its final position ("0vh"). On desktop, images alternate sides; on mobile,
+ * the CSS forces all overlapping images to fill the full width.
  */
 interface OverlapImageProps {
   image: GalleryItem;
@@ -26,12 +30,12 @@ interface OverlapImageProps {
   scrollYProgress: MotionValue<number>;
 }
 
-const OverlapImage: React.FC<OverlapImageProps> = ({
+const OverlapImage = ({
   image,
   index,
   total,
   scrollYProgress,
-}) => {
+}: OverlapImageProps) => {
   const segmentLength = 1 / total;
   const segmentStart = index * segmentLength;
   const segmentEnd = (index + 1) * segmentLength;
@@ -56,16 +60,33 @@ const OverlapImage: React.FC<OverlapImageProps> = ({
 
 /**
  * Gallery
- * - The first two images are rendered as the base images.
- * - Any remaining images are rendered as overlapping images that animate upward.
+ *
+ * - The first two images are rendered as base images on desktop.
+ * - On mobile, only the first (left) base image is shown.
+ * - Remaining images are rendered as overlapping images that animate upward.
  * - A spacer element below the sticky section provides the extra scroll space needed.
  */
 const Gallery = () => {
   const data = (galleryData as GalleryData).gallery;
 
-  const baseLeft = data[0];
-  const baseRight = data[1];
-  const overlappingImages = data.slice(2);
+  const isMobile = useMediaQuery("(max-width: 992px)");
+
+  const { baseLeft, baseRight, overlappingImages } = useMemo(() => {
+    if (isMobile) {
+      return {
+        baseLeft: data[0],
+        baseRight: undefined,
+        overlappingImages: data.slice(1),
+      };
+    }
+
+    return {
+      baseLeft: data[0],
+      baseRight: data[1],
+      overlappingImages: data.slice(2),
+    };
+  }, [isMobile, data]);
+
   const totalOverlap = overlappingImages.length;
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -77,8 +98,6 @@ const Gallery = () => {
 
   const spacerHeight = totalOverlap * 100;
 
-  if (data.length < 2) return null;
-
   return (
     <div className={styles.gallery_container} ref={containerRef}>
       <div className={styles.sticky_section}>
@@ -86,9 +105,16 @@ const Gallery = () => {
           <div className={styles.base_left}>
             <Image src={baseLeft.img} alt={baseLeft.alt} fill />
           </div>
-          <div className={styles.base_right}>
-            <Image src={baseRight.img} alt={baseRight.alt} fill />
-          </div>
+          {!isMobile && baseRight && (
+            <div className={styles.base_right}>
+              <Image
+                src={baseRight.img}
+                alt={baseRight.alt}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          )}
         </div>
         {overlappingImages.map((image, i) => (
           <OverlapImage
