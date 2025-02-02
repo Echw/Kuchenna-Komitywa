@@ -34,7 +34,8 @@
 
 .gallery {
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 
   & > div {
     margin: 0;

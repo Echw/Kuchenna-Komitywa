@@ -7,6 +7,22 @@
     {
       "img": "/assets/gallery_2.png",
       "alt": "danie 2"
+    },
+    {
+      "img": "/assets/gallery_1.png",
+      "alt": "danie 3"
+    },
+    {
+      "img": "/assets/gallery_2.png",
+      "alt": "danie 4"
+    },
+    {
+      "img": "/assets/gallery_1.png",
+      "alt": "danie 5"
+    },
+    {
+      "img": "/assets/gallery_2.png",
+      "alt": "danie 6"
     }
   ]
 }
