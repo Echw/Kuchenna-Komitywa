@@ -15,51 +15,55 @@ import { Lenis } from "@/components/Lenis";
 
 export default function Home() {
   return (
-    <>
-      <Lenis>
-        <Header />
-        <main>
+    <Lenis>
+      <Header />
+      <main>
+        <SectionContainer
+          id="hero"
+          isFirstSection
+          className={sectionContainerStyles.hero}
+          backgroundColor="var(--mantine-color-mainGreen-6)"
+        >
+          <Hero />
+        </SectionContainer>
+        <div className={sectionContainerStyles.sections}>
           <SectionContainer
-            id="hero"
-            isFirstSection
-            className={sectionContainerStyles.hero}
-            backgroundColor="var(--mantine-color-mainGreen-6)"
+            id="why"
+            backgroundColor="var(--mantine-color-white)"
           >
-            <Hero />
+            <WhySection />
           </SectionContainer>
-          <div className={sectionContainerStyles.sections}>
-            <SectionContainer
-              id="why"
-              backgroundColor="var(--mantine-color-white)"
-            >
-              <WhySection />
-            </SectionContainer>
-            <SectionContainer
-              id="about-me"
-              backgroundColor="var(--mantine-color-mainGreen-8)"
-            >
-              <AboutMeSection />
-            </SectionContainer>
-            <SectionContainer
-              id="foods"
-              backgroundColor="var(--mantine-color-mainGreen-10)"
-            >
-              <FoodSection />
-            </SectionContainer>
-            <SectionContainer
-              className={sectionContainerStyles.gallery}
-              id="gallery"
-              backgroundColor="var(--mantine-color-mainGreen-8)"
-            >
-              <Gallery />
-            </SectionContainer>
-            <SectionContainer id="contact" backgroundColor="#31582B">
-              <ContactForm />
-            </SectionContainer>
-          </div>
-        </main>
+          <SectionContainer
+            id="about-me"
+            backgroundColor="var(--mantine-color-mainGreen-8)"
+          >
+            <AboutMeSection />
+          </SectionContainer>
+          <SectionContainer
+            id="foods"
+            backgroundColor="var(--mantine-color-mainGreen-10)"
+          >
+            <FoodSection />
+          </SectionContainer>
+          <SectionContainer
+            className={sectionContainerStyles.gallery}
+            id="gallery"
+            backgroundColor="var(--mantine-color-mainGreen-8)"
+          >
+            <Gallery />
+          </SectionContainer>
+          <SectionContainer id="contact" backgroundColor="#31582B">
+            <ContactForm />
+          </SectionContainer>
+        </div>
+      </main>
+      <SectionContainer
+        className={sectionContainerStyles.footer}
+        id="footer"
+        backgroundColor="var(--mantine-color-mainGreen-9)"
+      >
         <Footer />
-      </Lenis>
-    </>
+      </SectionContainer>
+    </Lenis>
   );
 }
