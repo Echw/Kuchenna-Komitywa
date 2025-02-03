@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import styles from "./Header.module.scss";
 import { IconX } from "@tabler/icons-react";
+import { useLenis } from "lenis/react";
 
 const links = [
   { link: "#why", label: "Dlaczego roślinna?" },
@@ -20,6 +21,8 @@ const links = [
 const Header = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
+  const lenis = useLenis();
+
   const [active, setActive] = useState<string | null>();
 
   useEffect(() => {
@@ -62,6 +65,7 @@ const Header = () => {
       href={link.link}
       label={link.label}
       data-active={active === link.link || undefined}
+      onClick={() => lenis?.scrollTo(link.link)}
     />
   ));
 
@@ -78,6 +82,7 @@ const Header = () => {
         <Container className={styles.inner}>
           <NavLink
             href="#"
+            onClick={() => lenis?.scrollTo("top")}
             className={styles.home_link}
             leftSection={
               <Image
