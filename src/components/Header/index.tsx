@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Container, Group, Burger, Drawer, NavLink, rem } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useLenis } from "lenis/react";
+import { IconX } from "@tabler/icons-react";
 
 import styles from "./Header.module.scss";
-import { IconX } from "@tabler/icons-react";
-import { useLenis } from "lenis/react";
 
 const links = [
   { link: "#why", label: "Dlaczego roślinna?" },

@@ -12,10 +12,10 @@
 
   @media (max-width: $mantine-breakpoint-lg) {
     padding-bottom: rem(450px);
-    grid-template-rows: none;
   }
 
   @media (max-width: $mantine-breakpoint-md) {
+    grid-template-rows: none;
     padding-top: rem(100px);
     grid-gap: 3rem;
   }

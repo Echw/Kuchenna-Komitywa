@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Text, Image } from "@mantine/core";
 import clsx from "clsx";
 
@@ -70,13 +70,14 @@ const pointVariants = {
 const textVariants = {
   hidden: {
     opacity: 0,
-    y: 20,
+    // y: 20,
   },
   visible: {
     opacity: 1,
-    y: 0,
+    // y: 0,
     transition: {
       duration: 0.5,
+      delay: 0.5,
     },
   },
 };
@@ -111,7 +112,12 @@ const WhySection = () => {
         title="Dlaczego kuchnia roślinna?"
         color="var(--mantine-color-mainGreen-8)"
       />
-      <div className={styles.points}>
+      <motion.div
+        className={styles.points}
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <svg
           className={styles.path}
           viewBox="0 0 1034 1470"
@@ -196,7 +202,7 @@ const WhySection = () => {
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
       {images.map((image, index) => (
         <Image
           key={`leaf-${index}`}

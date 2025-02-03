@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
 
