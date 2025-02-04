@@ -15,38 +15,19 @@ const ContactForm = () => {
       </div>
       <div className={styles.form}>
         <div className={styles.line}>
-          <TextInput
-            placeholder=""
-            required
-            className={styles.input_name}
-            name="name"
-            label="Imię"
-            c="white"
-          />
+          <TextInput required name="name" label="Imię" c="white" />
         </div>
         <div className={styles.line}>
-          <TextInput
-            placeholder=""
-            required
-            className={styles.input_email}
-            name="email"
-            label="   E-mail"
-          />
+          <TextInput required name="email" label="E-mail" c="white" />
         </div>
         <div className={styles.line}>
           <Textarea
-            placeholder=""
             required
-            className={styles.input_message}
             name="message"
             label="Wiadomość"
             minRows={1}
             maxRows={10}
-            styles={{
-              input: {
-                minHeight: "200px",
-              },
-            }}
+            c="white"
           />
         </div>
         <Button
