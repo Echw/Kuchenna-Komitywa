@@ -22,16 +22,16 @@ const textsVariants: Variants = {
 
 const AboutMeSection = () => {
   return (
-    <div className={styles.about_me}>
+    <div className={styles.section}>
       <Image
         src="/assets/tomek.jpg"
         alt="Mistrz kuchni"
-        className={styles.about_me_img}
+        className={styles.main_image}
       />
-      <div className={styles.about_me_description_container}>
+      <div className={styles.description}>
         <SectionTitle title="O mnie" color="var(--mantine-color-orange-6)" />
         <motion.div variants={textsVariants} initial="hidden" animate="visible">
-          <TextContainer pt={"xl"} c="white">
+          <TextContainer c="white" pt="xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco.
@@ -46,7 +46,7 @@ const AboutMeSection = () => {
         src={`/assets/about_deco.png`}
         alt="leafs"
         w={135}
-        className={styles.about_deco_1}
+        className={styles.leaf_image}
       />
     </div>
   );
