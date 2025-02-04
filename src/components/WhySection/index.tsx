@@ -6,7 +6,7 @@ import { Image } from "@mantine/core";
 import clsx from "clsx";
 
 import styles from "./WhySection.module.scss";
-import SectionTitle from "../common/SectionTitle/SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
 const images = [

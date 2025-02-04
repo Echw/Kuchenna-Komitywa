@@ -1,7 +1,7 @@
 import { Button, TextInput, Textarea } from "@mantine/core";
 
 import styles from "./ContactForm.module.scss";
-import SectionTitle from "../common/SectionTitle/SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
 const ContactForm = () => {

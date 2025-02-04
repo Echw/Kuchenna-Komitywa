@@ -8,7 +8,7 @@ import { useMediaQuery } from "@mantine/hooks";
 
 import styles from "./FoodSection.module.scss";
 import foodData from "../../data/food-data.json";
-import SectionTitle from "../common/SectionTitle/SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
 interface FoodItem {

@@ -1,10 +1,8 @@
-"use client";
-
 import { rem } from "@mantine/core";
 import { IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
 
 import styles from "./Footer.module.scss";
-import SectionTitle from "../common/SectionTitle/SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
 const Footer = () => {

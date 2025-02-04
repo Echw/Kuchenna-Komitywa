@@ -1,7 +1,8 @@
 import { Image } from "@mantine/core";
-import styles from "./AboutMeSection.module.scss";
-import SectionTitle from "../common/SectionTitle/SectionTitle";
 import { motion, Variants } from "motion/react";
+
+import styles from "./AboutMeSection.module.scss";
+import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
 const textsVariants: Variants = {
