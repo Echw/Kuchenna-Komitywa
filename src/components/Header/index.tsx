@@ -19,8 +19,7 @@ const links = [
 ];
 
 const Header = () => {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const lenis = useLenis();
 
   const [active, setActive] = useState<string | null>();
@@ -45,17 +44,17 @@ const Header = () => {
   const backgroundColor = useTransform(
     scrollY,
     [0, 150],
-    ["transparent", "var(--mantine-color-body)"],
+    ["transparent", "var(--mantine-color-body)"]
   );
   const borderRadius = useTransform(
     scrollY,
     [0, 150],
-    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"],
+    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"]
   );
   const boxShadow = useTransform(
     scrollY,
     [0, 150],
-    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"],
+    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"]
   );
 
   const linkItems = links.map((link) => (
@@ -84,24 +83,12 @@ const Header = () => {
             href="#"
             onClick={() => lenis?.scrollTo("top")}
             className={styles.home_link}
-            leftSection={
-              <Image
-                src={`/assets/logo.svg`}
-                alt="logo"
-                width="65"
-                height="60"
-              />
-            }
+            leftSection={<Image src={`/assets/logo.svg`} alt="logo" width="80" height="80" />}
           />
           <Group gap={20} visibleFrom="sm">
             {linkItems}
           </Group>
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            hiddenFrom="sm"
-            size="sm"
-          />
+          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" size="sm" />
         </Container>
       </motion.header>
       <Drawer
