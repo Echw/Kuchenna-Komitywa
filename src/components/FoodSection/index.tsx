@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { Card, Title, Image, List, ThemeIcon, rem } from "@mantine/core";
+import { Card, Image, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 import { useMediaQuery } from "@mantine/hooks";
@@ -9,6 +9,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import styles from "./FoodSection.module.scss";
 import foodData from "../../data/food-data.json";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
+import TextContainer from "../common/TextContainer";
 
 interface FoodItem {
   img: string;
@@ -188,13 +189,14 @@ const FoodCard = ({ item }: { item: FoodItem }) => {
           className={styles.small_card_img}
         />
       </div>
-      <Title
-        order={3}
+      <TextContainer
+        variant="big"
+        isTitle
         className={styles.small_card_title}
         c="var(--mantine-color-orange-6)"
       >
         {item.name}
-      </Title>
+      </TextContainer>
       <List
         className={styles.food_list}
         spacing="xs"
@@ -212,7 +214,9 @@ const FoodCard = ({ item }: { item: FoodItem }) => {
         }
       >
         {item.types.map((type, index) => (
-          <List.Item key={index}>{type}</List.Item>
+          <List.Item key={index}>
+            <TextContainer c="black">{type}</TextContainer>
+          </List.Item>
         ))}
       </List>
     </Card>

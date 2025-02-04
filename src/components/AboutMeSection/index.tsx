@@ -1,7 +1,8 @@
-import { Image, Text } from "@mantine/core";
+import { Image } from "@mantine/core";
 import styles from "./AboutMeSection.module.scss";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 import { motion, Variants } from "motion/react";
+import TextContainer from "../common/TextContainer";
 
 const textsVariants: Variants = {
   hidden: {
@@ -28,9 +29,8 @@ const AboutMeSection = () => {
       />
       <div className={styles.about_me_description_container}>
         <SectionTitle title="O mnie" color="var(--mantine-color-orange-6)" />
-
         <motion.div variants={textsVariants} initial="hidden" animate="visible">
-          <Text pt={"xl"} c="white" className={styles.about_me_description}>
+          <TextContainer pt={"xl"} c="white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco.
@@ -38,7 +38,7 @@ const AboutMeSection = () => {
             <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
+          </TextContainer>
         </motion.div>
       </div>
       <Image

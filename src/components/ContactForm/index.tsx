@@ -1,36 +1,33 @@
-"use client";
-
-import { Text, Button, TextInput, Textarea } from "@mantine/core";
+import { Button, TextInput, Textarea } from "@mantine/core";
 
 import styles from "./ContactForm.module.scss";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
+import TextContainer from "../common/TextContainer";
 
 const ContactForm = () => {
   return (
     <div className={styles.contact_form}>
       <div className={styles.contact_description}>
         <SectionTitle title="Kontakt" color="var(--mantine-color-orange-6)" />
-        <Text pt={"xl"} c="white">
+        <TextContainer pt={"xl"} c="white">
           Masz pytanie? Skontaktuj się z nami!
-        </Text>
+        </TextContainer>
       </div>
-
       <div className={styles.form}>
         <div className={styles.line}>
           <TextInput
             placeholder=""
             required
-            w={"100%"}
             className={styles.input_name}
             name="name"
             label="Imię"
+            c="white"
           />
         </div>
         <div className={styles.line}>
           <TextInput
             placeholder=""
             required
-            w={"100%"}
             className={styles.input_email}
             name="email"
             label="   E-mail"
@@ -40,7 +37,6 @@ const ContactForm = () => {
           <Textarea
             placeholder=""
             required
-            w={"100%"}
             className={styles.input_message}
             name="message"
             label="Wiadomość"
@@ -48,7 +44,7 @@ const ContactForm = () => {
             maxRows={10}
             styles={{
               input: {
-                height: "200px",
+                minHeight: "200px",
               },
             }}
           />

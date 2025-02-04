@@ -29,7 +29,6 @@
   flex-direction: column;
   max-width: rem(626px);
   font-family: var(--Poppins);
-  font-size: rem(24px);
   width: 100%;
   gap: rem(15px);
 
@@ -38,7 +37,6 @@
     width: 100%;
 
     label {
-      font-size: rem(16px);
       color: #132b13;
       z-index: 2;
       font-weight: bold;

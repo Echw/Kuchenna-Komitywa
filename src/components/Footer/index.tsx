@@ -1,10 +1,11 @@
 "use client";
 
-import { Text, rem } from "@mantine/core";
+import { rem } from "@mantine/core";
 import { IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
 
 import styles from "./Footer.module.scss";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
+import TextContainer from "../common/TextContainer";
 
 const Footer = () => {
   return (
@@ -26,8 +27,12 @@ const Footer = () => {
             }}
           />
         </div>
-        <Text c="var(--mantine-color-mainGreen-3)">+66 666 666 666</Text>
-        <Text c="var(--mantine-color-mainGreen-3)">fantomek@gmail.com</Text>
+        <TextContainer c="var(--mantine-color-mainGreen-3)">
+          +66 666 666 666
+        </TextContainer>
+        <TextContainer c="var(--mantine-color-mainGreen-3)">
+          fantomek@gmail.com
+        </TextContainer>
       </div>
       <div className={styles.footer_title}>
         <SectionTitle title="Kuchenna" color="var(--mantine-color-orange-6)" />

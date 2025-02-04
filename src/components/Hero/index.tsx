@@ -1,11 +1,12 @@
 "use client";
 
-import { Box, Title, Text, Group } from "@mantine/core";
+import { Box, Title, Group } from "@mantine/core";
 import { Variants, motion } from "motion/react";
 import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
 import { ScrollIcon } from "./ScrollIcon";
+import TextContainer from "../common/TextContainer";
 
 const containerVariants: Variants = {
   hidden: {
@@ -108,10 +109,10 @@ const Hero = () => {
         </motion.div>
 
         <motion.div variants={descriptionVariants}>
-          <Text className={styles.description} size="xl" mt="xl">
+          <TextContainer className={styles.description} mt="xl">
             Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
             cras.
-          </Text>
+          </TextContainer>
         </motion.div>
 
         <motion.div

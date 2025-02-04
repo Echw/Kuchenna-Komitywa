@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { Text, Image } from "@mantine/core";
+import { Image } from "@mantine/core";
 import clsx from "clsx";
 
 import styles from "./WhySection.module.scss";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
+import TextContainer from "../common/TextContainer";
 
 const images = [
   { src: "/assets/why_section/leaf_1.png", alt: "leafs 1", width: 135 },
@@ -186,19 +187,17 @@ const WhySection = () => {
                 duration: 0.5,
               }}
             >
-              <Text
-                fz={{ base: 24, md: 32 }}
+              <TextContainer
+                variant="big"
+                isTitle
                 lh="xl"
-                className={clsx(styles.text, styles.title)}
+                c="var(--mantine-color-mainGreen-9)"
               >
                 {text.title}
-              </Text>
-              <Text
-                fz={{ base: 20, md: 22 }}
-                className={clsx(styles.why, styles.description)}
-              >
+              </TextContainer>
+              <TextContainer className={clsx(styles.why, styles.description)}>
                 {text.description}
-              </Text>
+              </TextContainer>
             </motion.div>
           );
         })}

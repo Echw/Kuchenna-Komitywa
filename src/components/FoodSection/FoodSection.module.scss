@@ -114,19 +114,16 @@
   line-height: 1.1;
   font-family: var(--Poppins);
   user-select: none;
-  font-size: rem(38px);
   transform: translateY(0%);
   transition: 0.4s ease-in-out 0.4s;
 
   @media (max-width: 1024px) {
     margin-left: rem(40px);
-    font-size: rem(32px);
   }
 
   @media (max-width: 768px) {
     margin-top: rem(30px);
     margin-left: rem(24px);
-    font-size: rem(24px);
   }
 }
 
@@ -137,20 +134,16 @@
   top: 60%;
   opacity: 0;
   transition: 0.4s ease-in-out 0s;
-  font-family: var(--Roboto);
   user-select: none;
-  font-size: rem(24px);
 
   @media (max-width: 1024px) {
     margin-left: rem(40px);
     margin-right: rem(40px);
-    font-size: rem(20px);
   }
 
   @media (max-width: 768px) {
     margin-left: rem(24px);
     margin-right: rem(24px);
-    font-size: rem(16px);
     top: 55%;
   }
 }
