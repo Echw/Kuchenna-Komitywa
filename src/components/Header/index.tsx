@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Container, Group, Burger, Drawer, NavLink, rem } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useLenis } from "lenis/react";
 import { IconX } from "@tabler/icons-react";
@@ -19,7 +19,10 @@ const links = [
 ];
 
 const Header = () => {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
+    useDisclosure(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const lenis = useLenis();
 
   const [active, setActive] = useState<string | null>();
@@ -44,17 +47,17 @@ const Header = () => {
   const backgroundColor = useTransform(
     scrollY,
     [0, 150],
-    ["transparent", "var(--mantine-color-body)"]
+    ["transparent", "var(--mantine-color-body)"],
   );
   const borderRadius = useTransform(
     scrollY,
     [0, 150],
-    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"]
+    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"],
   );
   const boxShadow = useTransform(
     scrollY,
     [0, 150],
-    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"]
+    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"],
   );
 
   const linkItems = links.map((link) => (
@@ -83,12 +86,24 @@ const Header = () => {
             href="#"
             onClick={() => lenis?.scrollTo("top")}
             className={styles.home_link}
-            leftSection={<Image src={`/assets/logo.svg`} alt="logo" width="80" height="80" />}
+            leftSection={
+              <Image
+                src={`/assets/logo.svg`}
+                alt="logo"
+                width={isMobile ? 40 : 60}
+                height={isMobile ? 40 : 60}
+              />
+            }
           />
           <Group gap={20} visibleFrom="sm">
             {linkItems}
           </Group>
-          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" size="sm" />
+          <Burger
+            opened={drawerOpened}
+            onClick={toggleDrawer}
+            hiddenFrom="sm"
+            size="sm"
+          />
         </Container>
       </motion.header>
       <Drawer
