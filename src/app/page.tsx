@@ -26,36 +26,31 @@ export default function Home() {
         >
           <Hero />
         </SectionContainer>
-        <div className={sectionContainerStyles.sections}>
-          <SectionContainer
-            id="why"
-            backgroundColor="var(--mantine-color-white)"
-          >
-            <WhySection />
-          </SectionContainer>
-          <SectionContainer
-            id="about-me"
-            backgroundColor="var(--mantine-color-mainGreen-8)"
-          >
-            <AboutMeSection />
-          </SectionContainer>
-          <SectionContainer
-            id="foods"
-            backgroundColor="var(--mantine-color-mainGreen-10)"
-          >
-            <FoodSection />
-          </SectionContainer>
-          <SectionContainer
-            className={sectionContainerStyles.gallery}
-            id="gallery"
-            backgroundColor="var(--mantine-color-mainGreen-8)"
-          >
-            <Gallery />
-          </SectionContainer>
-          <SectionContainer id="contact" backgroundColor="#31582B">
-            <ContactForm />
-          </SectionContainer>
-        </div>
+        <SectionContainer id="why" backgroundColor="var(--mantine-color-white)">
+          <WhySection />
+        </SectionContainer>
+        <SectionContainer
+          id="about-me"
+          backgroundColor="var(--mantine-color-mainGreen-8)"
+        >
+          <AboutMeSection />
+        </SectionContainer>
+        <SectionContainer
+          id="foods"
+          backgroundColor="var(--mantine-color-mainGreen-10)"
+        >
+          <FoodSection />
+        </SectionContainer>
+        <SectionContainer
+          className={sectionContainerStyles.gallery}
+          id="gallery"
+          backgroundColor="var(--mantine-color-mainGreen-8)"
+        >
+          <Gallery />
+        </SectionContainer>
+        <SectionContainer id="contact" backgroundColor="#31582B">
+          <ContactForm />
+        </SectionContainer>
       </main>
       <SectionContainer
         className={sectionContainerStyles.footer}
