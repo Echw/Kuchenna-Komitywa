@@ -19,8 +19,7 @@ const links = [
 ];
 
 const Header = () => {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-    useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const lenis = useLenis();
@@ -47,17 +46,17 @@ const Header = () => {
   const backgroundColor = useTransform(
     scrollY,
     [0, 150],
-    ["transparent", "var(--mantine-color-body)"],
+    ["transparent", "var(--mantine-color-body)"]
   );
   const borderRadius = useTransform(
     scrollY,
     [0, 150],
-    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"],
+    ["0rem", "0 0 var(--mantine-radius-xl) var(--mantine-radius-xl)"]
   );
   const boxShadow = useTransform(
     scrollY,
     [0, 150],
-    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"],
+    ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"]
   );
 
   const linkItems = links.map((link) => (
@@ -68,6 +67,16 @@ const Header = () => {
       label={link.label}
       data-active={active === link.link || undefined}
       onClick={() => lenis?.scrollTo(link.link)}
+      leftSection={
+        <Image
+          className={styles.nav_icon}
+          src={`/assets/nav_icon.png`}
+          alt="nav icon"
+          key={link.label}
+          width={30}
+          height={14}
+        />
+      }
     />
   ));
 
@@ -95,15 +104,10 @@ const Header = () => {
               />
             }
           />
-          <Group gap={20} visibleFrom="sm">
+          <Group gap={5} visibleFrom="sm">
             {linkItems}
           </Group>
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            hiddenFrom="sm"
-            size="sm"
-          />
+          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" size="sm" />
         </Container>
       </motion.header>
       <Drawer
@@ -150,6 +154,16 @@ const Header = () => {
                 display: "none",
               },
             }}
+            leftSection={
+              <Image
+                className={styles.nav_icon}
+                src={`/assets/nav_icon.png`}
+                alt="nav icon"
+                key={link.label}
+                width={30}
+                height={14}
+              />
+            }
           />
         ))}
       </Drawer>
