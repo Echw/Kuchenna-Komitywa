@@ -12,7 +12,6 @@
 }
 
 .link {
-  // display: block;
   line-height: 1.2;
   padding: rem(8px) rem(12px);
   text-decoration: none;
@@ -22,7 +21,6 @@
   width: auto;
 
   .nav_icon {
-    // position: absolute;
     transform: scale(0) rotate(-50deg);
     transition: all 0.4s ease-in-out;
   }
@@ -74,25 +72,26 @@
 }
 
 .drawerLink {
-  // display: block;
   line-height: 1;
   padding: 0.5rem 1rem;
   width: 40%;
-  // border-radius: var(--mantine-radius-sm);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.4s ease-in-out;
   white-space: nowrap;
   overflow: visible;
+  min-width: 200px;
+
+  & > span {
+    margin-right: 0;
+  }
 
   .nav_icon {
     position: absolute;
     display: block;
     transform: scale(0) rotate(-50deg);
     transition: all 0.4s ease-in-out;
-    // height: 100%;
     margin: 0;
-    margin-inline-end: 0 !important;
 
     img {
       position: absolute;
