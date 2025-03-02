@@ -13,7 +13,8 @@
     "clean:node_modules": "rm -rf node_modules",
     "docker:up": "docker-compose up",
     "generate:importmap": "NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "NODE_OPTIONS=--no-deprecation payload generate:types"
+    "generate:types": "NODE_OPTIONS=--no-deprecation payload generate:types",
+    "ci": "payload migrate && yarn build"
   },
   "dependencies": {
     "@mantine/carousel": "^7.15.1",
