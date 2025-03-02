@@ -1,19 +1,20 @@
 // storage-adapter-import-placeholder
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
-
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
+import path from "path";
 import sharp from "sharp";
 
-import { Users } from "./src/collections/Users";
-import { Media } from "./src/collections/Media";
-import { Homepage } from "./src/globals/homepage";
+import { Users } from "@/collections/Users";
+import { Media } from "@/collections/Media";
+import { Homepage } from "@/globals/homepage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+
+console.log("TEST", filename, dirname);
 
 export default buildConfig({
   admin: {
