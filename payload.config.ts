@@ -6,14 +6,12 @@ import { fileURLToPath } from "url";
 import path from "path";
 import sharp from "sharp";
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
-
-console.log("TEST", filename, dirname);
-
 import { Users } from "./src/collections/Users";
 import { Media } from "./src/collections/Media";
 import { Homepage } from "./src/globals/homepage";
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
@@ -37,6 +35,7 @@ export default buildConfig({
   sharp,
   plugins: [
     vercelBlobStorage({
+      enabled: false,
       collections: {
         media: true,
       },
