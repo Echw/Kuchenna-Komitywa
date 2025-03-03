@@ -68,9 +68,7 @@ const FoodSection = () => {
       if (!containerRef.current) return;
 
       const isMobile = window.innerWidth < 768;
-      const cards = containerRef.current.getElementsByClassName(
-        styles.small_card,
-      );
+      const cards = containerRef.current.getElementsByClassName("small_card");
       if (!cards.length) return;
 
       const firstCard = cards[0] as HTMLElement;
@@ -95,9 +93,7 @@ const FoodSection = () => {
     const handleScroll = () => {
       if (!containerRef.current) return;
 
-      const cards = containerRef.current.getElementsByClassName(
-        styles.small_card,
-      );
+      const cards = containerRef.current.getElementsByClassName("small_card");
       const viewportCenter = window.innerWidth / 2;
       const threshold = window.innerWidth < 768 ? 50 : 100;
       let centerIndex = -1;
