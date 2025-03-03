@@ -35,7 +35,7 @@ export default buildConfig({
   sharp,
   plugins: [
     vercelBlobStorage({
-      enabled: false,
+      enabled: true,
       collections: {
         media: true,
       },
