@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
-    /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-
     "baseUrl": ".",
     "esModuleInterop": true,
     "target": "ES2022",
@@ -27,11 +25,17 @@
       }
     ],
     "paths": {
-      "@payload-config": ["./src/payload.config.ts"],
+      "@payload-config": ["./payload.config.ts"],
       "react": ["./node_modules/@types/react"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.js"
+  ],
   "exclude": ["node_modules"]
 }

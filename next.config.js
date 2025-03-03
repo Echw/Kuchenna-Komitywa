@@ -9,6 +9,7 @@ const nextConfig = {
     implementation: "sass-embedded",
     additionalData: '@use "_mantine" as *;',
   },
+  reactStrictMode: true,
 };
 
 export default withPayload(nextConfig);

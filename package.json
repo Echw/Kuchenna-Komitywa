@@ -2,10 +2,12 @@
   "name": "kuchenna-komitywa",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "description": "Kuchenna Komitywa",
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbopack",
-    "build": "next build",
+    "build": "NODE_OPTIONS=--no-deprecation next build",
     "start": "next start",
     "lint": "next lint",
     "clean": "yarn clean:next && yarn clean:node_modules",
