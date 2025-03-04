@@ -98,6 +98,8 @@ const Gallery = () => {
 
   const spacerHeight = totalOverlap * 100;
 
+  if (!baseLeft) return <></>;
+
   return (
     <div className={styles.gallery_container} ref={containerRef}>
       <div className={styles.sticky_section}>

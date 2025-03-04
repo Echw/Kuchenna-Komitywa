@@ -79,7 +79,11 @@ const scrollIconVariants: Variants = {
   },
 };
 
-const Hero = () => {
+interface HeroProps {
+  subtitle?: string;
+}
+
+const Hero = ({ subtitle }: HeroProps) => {
   return (
     <motion.div
       variants={containerVariants}
@@ -110,8 +114,7 @@ const Hero = () => {
 
         <motion.div variants={descriptionVariants}>
           <TextContainer className={styles.description} mt="xl">
-            Lorem ipsum dolor sit amet consectetur. Leo auctor consequat at non
-            cras.
+            {subtitle}
           </TextContainer>
         </motion.div>
 

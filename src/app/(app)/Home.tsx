@@ -13,7 +13,11 @@ import SectionContainer from "@/components/common/SectionContainer";
 import sectionContainerStyles from "@/components/common/SectionContainer/SectionContainer.module.scss";
 import { Lenis } from "@/components/Lenis";
 
-export default function Home() {
+interface HomeProps {
+  subtitle: string;
+}
+
+export default function Home({ subtitle }: HomeProps) {
   return (
     <Lenis>
       <Header />
@@ -24,7 +28,7 @@ export default function Home() {
           className={sectionContainerStyles.hero}
           backgroundColor="var(--mantine-color-mainGreen-6)"
         >
-          <Hero />
+          <Hero subtitle={subtitle} />
         </SectionContainer>
         <SectionContainer id="why" backgroundColor="var(--mantine-color-white)">
           <WhySection />

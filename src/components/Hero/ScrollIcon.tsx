@@ -15,9 +15,9 @@ export const ScrollIcon = () => {
           <path
             id="circle"
             d="M 50, 50
-       m -50, 0
-       a 50,50 0 1,0 100,0
-       a 50,50 0 1,0 -100,0"
+            m -50, 0
+            a 50,50 0 1,0 100,0
+            a 50,50 0 1,0 -100,0"
           ></path>
         </defs>
         <text
