@@ -1,82 +1,85 @@
 "use client";
 
 import { Box, Title, Group } from "@mantine/core";
-import { Variants, motion } from "motion/react";
+import { motion } from "motion/react";
 import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
+
 import { ScrollIcon } from "./ScrollIcon";
 import TextContainer from "../common/TextContainer";
 
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
+const animations = {
+  container: {
+    hidden: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.3,
+      },
+    },
   },
-  animate: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.5,
-      staggerChildren: 0.3,
+  fadeInUp: {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  },
+  scrollIcon: {
+    hidden: {
+      opacity: 0,
+      bottom: "0%",
+    },
+    animate: {
+      opacity: 1,
+      bottom: "5%",
+      transition: {
+        duration: 0.5,
+        delay: 1.5,
+        ease: "easeOut",
+      },
     },
   },
 };
 
-const childVariants: Variants = {
-  animate: {
-    rotate: [0, 5],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      repeatType: "mirror",
-      ease: "easeInOut",
-    },
-  },
-};
-
-const titleGroupVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      delay: 0.25, // Appears after images
-    },
-  },
-};
-
-const descriptionVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      delay: 1, // Appears after titles
-    },
-  },
-};
-
-const scrollIconVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    bottom: "0%",
-  },
-  animate: {
-    opacity: 1,
-    bottom: "5%",
-    transition: {
-      duration: 0.5,
-      delay: 1.5,
-      ease: "easeOut", // Appears the last
-    },
-  },
+const HeroImages = () => {
+  return (
+    <motion.div
+      className={styles.hero_img_group}
+      variants={animations.container}
+      initial="hidden"
+      animate="animate"
+    >
+      {Array.from({ length: 9 }).map((_, index) => (
+        <motion.img
+          key={index}
+          src={`/assets/Group-${index}.png`}
+          className={styles[`img_${index}`]}
+          animate={{
+            rotate: [0, 5],
+            transition: {
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+            },
+          }}
+          initial={{ rotate: 0 }}
+        />
+      ))}
+    </motion.div>
+  );
 };
 
 interface HeroProps {
@@ -84,18 +87,20 @@ interface HeroProps {
 }
 
 const Hero = ({ subtitle }: HeroProps) => {
+  const titleLetters = ["K", "u", "c", "h", "e", "n", "n", "a"];
+
   return (
     <motion.div
-      variants={containerVariants}
+      variants={animations.container}
       initial="hidden"
       animate="animate"
       className={styles.hero}
     >
       <Box className={styles.container}>
-        <motion.div variants={titleGroupVariants}>
+        <motion.div variants={animations.fadeInUp} transition={{ delay: 0.25 }}>
           <Group gap={2} className={styles.title_group}>
             <Title order={1} className={clsx(styles.title, styles.title1)}>
-              {["K", "u", "c", "h", "e", "n", "n", "a"].map((letter, index) => (
+              {titleLetters.map((letter, index) => (
                 <span key={index}>{letter}</span>
               ))}
             </Title>
@@ -112,52 +117,22 @@ const Hero = ({ subtitle }: HeroProps) => {
           </Group>
         </motion.div>
 
-        <motion.div variants={descriptionVariants}>
+        <motion.div variants={animations.fadeInUp} transition={{ delay: 1 }}>
           <TextContainer className={styles.description} mt="xl">
             {subtitle}
           </TextContainer>
         </motion.div>
 
         <motion.div
-          variants={scrollIconVariants}
+          variants={animations.scrollIcon}
           className={styles.scroll_icon}
-          style={{ bottom: "0%" }} // Initial position
+          style={{ position: "absolute", bottom: "0%" }}
         >
           <ScrollIcon />
         </motion.div>
       </Box>
 
-      <motion.div
-        className={styles.hero_img_group}
-        variants={containerVariants}
-        initial="hidden"
-        animate="animate"
-      >
-        {[...Array(9)].map((_, index) => {
-          return (
-            <motion.img
-              key={index}
-              src={`/assets/Group-${index}.png`}
-              className={styles[`img_${index}`]}
-              variants={childVariants}
-              animate={{
-                rotate: 5,
-              }}
-              initial={{
-                rotate: 0,
-              }}
-              transition={{
-                rotate: {
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
-                },
-              }}
-            />
-          );
-        })}
-      </motion.div>
+      <HeroImages />
     </motion.div>
   );
 };
