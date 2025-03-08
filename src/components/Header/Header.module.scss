@@ -59,16 +59,18 @@
   background-color: #ffffff;
 }
 
-.mobile_menu div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  width: 100vw;
-}
+.mobile_menu {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100vw;
+  }
 
-.mobile_menu img {
-  margin-bottom: 3rem;
+  img {
+    margin-bottom: 3rem;
+  }
 }
 
 .drawerLink {
