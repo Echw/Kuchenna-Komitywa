@@ -63,7 +63,7 @@ const HeroImages = () => {
       {Array.from({ length: 9 }).map((_, index) => (
         <motion.img
           key={index}
-          src={`/assets/Group-${index}.png`}
+          src={`/assets/hero/leaf-${index + 1}.png`}
           className={styles[`img_${index}`]}
           animate={{
             rotate: [0, 5],

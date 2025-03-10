@@ -10,12 +10,12 @@ import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
 const LEAF_IMAGES = [
-  { src: "/assets/why_section/leaf_1.png", alt: "leafs 1", width: 135 },
-  { src: "/assets/why_section/leaf_2.png", alt: "leafs 2", width: 305 },
-  { src: "/assets/why_section/leaf_3.png", alt: "leafs 3", width: 116 },
-  { src: "/assets/why_section/leaf_4.png", alt: "leafs 4", width: 166 },
-  { src: "/assets/why_section/leaf_5.png", alt: "leafs 5", width: 230 },
-  { src: "/assets/why_section/leaf_6.png", alt: "leafs 6", width: 380 },
+  { src: "/assets/why-section/leaf-1.png", alt: "leaf 1", width: 135 },
+  { src: "/assets/why-section/leaf-2.png", alt: "leaf 2", width: 305 },
+  { src: "/assets/why-section/leaf-3.png", alt: "leaf 3", width: 116 },
+  { src: "/assets/why-section/leaf-4.png", alt: "leaf 4", width: 166 },
+  { src: "/assets/why-section/leaf-5.png", alt: "leaf 5", width: 230 },
+  { src: "/assets/why-section/leaf-6.png", alt: "leaf 6", width: 380 },
 ];
 
 const SECTION_CONTENT = [
@@ -90,7 +90,7 @@ const ANIMATIONS: Record<string, Variants> = {
   },
 };
 
-const LINE_PATH =
+const WHY_PATH =
   "M546.61 1C554.11 57.5 625.11 78.4745 687.61 73C756.11 67 844.61 68.5188 877.61 91C918.61 118.931 940.61 180.5 940.61 246.5C940.61 262.508 929.45 344.017 847.11 363C673.61 403 417.443 369 224.61 363C198.276 365.5 148.21 358.1 158.61 308.5C171.61 246.5 230.61 322 205.11 445.5C179.61 569 227.554 592.752 257.5 613.5C327.5 662 806.715 608.867 877.61 636C958.61 667 972.909 787.175 918.11 855C857.11 930.5 262.5 858 192 909.5C121.5 961 116.5 1109.2 192 1154C267.5 1198.8 413.023 1176.35 566 1180.5C692 1183.91 898.8 1148.6 946 1231C967.5 1258 970 1396 917 1435.5C841 1492.14 689.5 1438 543 1426.5C502.797 1423.34 309.5 1377.5 168.5 1438C27.5 1498.5 17 1448 1.5 1438";
 
 const PathPoint = ({
@@ -208,7 +208,7 @@ const WhySection = () => {
         >
           <motion.path
             ref={pathRef}
-            d={LINE_PATH}
+            d={WHY_PATH}
             stroke="var(--mantine-color-mainGreen-11)"
             strokeWidth="4"
             style={{ strokeDashoffset }}

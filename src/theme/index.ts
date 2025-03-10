@@ -43,7 +43,7 @@ export const theme = createTheme({
     Burger: {
       styles: {
         burger: {
-          backgroundColor: "#132B13",
+          "--burger-color": "#31582B",
         },
       },
     },

@@ -1,27 +1,27 @@
 {
   "gallery": [
     {
-      "img": "/assets/gallery_1.png",
+      "img": "/assets/gallery/meal-1.png",
       "alt": "danie 1"
     },
     {
-      "img": "/assets/gallery_2.png",
+      "img": "/assets/gallery/meal-2.png",
       "alt": "danie 2"
     },
     {
-      "img": "/assets/gallery_1.png",
+      "img": "/assets/gallery/meal-1.png",
       "alt": "danie 3"
     },
     {
-      "img": "/assets/gallery_2.png",
+      "img": "/assets/gallery/meal-2.png",
       "alt": "danie 4"
     },
     {
-      "img": "/assets/gallery_1.png",
+      "img": "/assets/gallery/meal-1.png",
       "alt": "danie 5"
     },
     {
-      "img": "/assets/gallery_2.png",
+      "img": "/assets/gallery/meal-2.png",
       "alt": "danie 6"
     }
   ]

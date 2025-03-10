@@ -91,8 +91,8 @@ const NavItem = ({
       leftSection={
         <Image
           className={styles.nav_icon}
-          src="/assets/nav_icon.png"
-          alt="nav icon"
+          src="leaf.svg"
+          alt="leaf nav icon"
           width={30}
           height={14}
         />
@@ -173,8 +173,8 @@ const Header = () => {
               className={styles.home_link}
               leftSection={
                 <Image
-                  src="/assets/logo-dark.svg"
-                  alt="logo"
+                  src="logo-dark.svg"
+                  alt="logo image"
                   width={isMobile ? 40 : 50}
                   height={isMobile ? 40 : 50}
                 />
@@ -236,8 +236,8 @@ const Header = () => {
                 className={styles.logoContainer}
               >
                 <Image
-                  src="/assets/logo-dark.svg"
-                  alt="logo"
+                  src="logo-dark.svg"
+                  alt="logo image"
                   width="127"
                   height="116"
                 />

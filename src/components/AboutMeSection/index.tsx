@@ -105,7 +105,7 @@ const AboutMeSection = () => {
         }}
       >
         <Image
-          src={`/assets/about_deco.png`}
+          src={`flower.svg`}
           alt="leafs"
           className={styles.leaf_image}
           height={100}
