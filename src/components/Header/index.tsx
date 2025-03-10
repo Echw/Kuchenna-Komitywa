@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Container, Group, Burger, Drawer, NavLink, rem } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+  Variants,
+} from "motion/react";
 import { useLenis } from "lenis/react";
 import { IconX } from "@tabler/icons-react";
 
@@ -18,7 +24,7 @@ const NAVIGATION_LINKS = [
   { link: "#contact", label: "Kontakt" },
 ];
 
-const animations = {
+const ANIMATIONS: Record<string, Variants> = {
   header: {
     initial: { y: -100, opacity: 0 },
     animate: {
@@ -74,7 +80,7 @@ const NavItem = ({
     custom={index}
     initial="initial"
     animate="animate"
-    variants={mobile ? animations.mobileMenu : animations.link}
+    variants={mobile ? ANIMATIONS.mobileMenu : ANIMATIONS.link}
   >
     <NavLink
       className={mobile ? styles.drawerLink : styles.link}
@@ -157,7 +163,7 @@ const Header = () => {
         style={{ backgroundColor, borderRadius, boxShadow }}
         initial="initial"
         animate="animate"
-        variants={animations.header}
+        variants={ANIMATIONS.header}
       >
         <Container className={styles.inner}>
           <motion.div style={{ scale: logoScale }}>

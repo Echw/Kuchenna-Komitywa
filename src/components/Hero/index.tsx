@@ -1,15 +1,14 @@
 "use client";
 
 import { Box, Title, Group } from "@mantine/core";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
-
 import { ScrollIcon } from "./ScrollIcon";
 import TextContainer from "../common/TextContainer";
 
-const animations = {
+const ANIMATIONS: Record<string, Variants> = {
   container: {
     hidden: {
       opacity: 0,
@@ -57,7 +56,7 @@ const HeroImages = () => {
   return (
     <motion.div
       className={styles.hero_img_group}
-      variants={animations.container}
+      variants={ANIMATIONS.container}
       initial="hidden"
       animate="animate"
     >
@@ -91,13 +90,13 @@ const Hero = ({ subtitle }: HeroProps) => {
 
   return (
     <motion.div
-      variants={animations.container}
+      variants={ANIMATIONS.container}
       initial="hidden"
       animate="animate"
       className={styles.hero}
     >
       <Box className={styles.container}>
-        <motion.div variants={animations.fadeInUp} transition={{ delay: 0.25 }}>
+        <motion.div variants={ANIMATIONS.fadeInUp} transition={{ delay: 0.25 }}>
           <Group gap={2} className={styles.title_group}>
             <Title order={1} className={clsx(styles.title, styles.title1)}>
               {titleLetters.map((letter, index) => (
@@ -117,14 +116,14 @@ const Hero = ({ subtitle }: HeroProps) => {
           </Group>
         </motion.div>
 
-        <motion.div variants={animations.fadeInUp} transition={{ delay: 1 }}>
+        <motion.div variants={ANIMATIONS.fadeInUp} transition={{ delay: 1 }}>
           <TextContainer className={styles.description} mt="xl">
             {subtitle}
           </TextContainer>
         </motion.div>
 
         <motion.div
-          variants={animations.scrollIcon}
+          variants={ANIMATIONS.scrollIcon}
           className={styles.scroll_icon}
           style={{ position: "absolute", bottom: "0%" }}
         >

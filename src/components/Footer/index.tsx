@@ -2,31 +2,31 @@
 
 import { rem } from "@mantine/core";
 import { IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 
 import styles from "./Footer.module.scss";
 import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
-const ANIMATIONS = {
+const ANIMATIONS: Record<string, Variants> = {
   icons: {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 0.5, delay: 0.1 },
     },
   },
   contactText: {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 0.5, delay: 0.3 + i * 0.2 },
     }),
   },
   sectionTitle: {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
@@ -34,9 +34,10 @@ const ANIMATIONS = {
     }),
   },
   copyright: {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: { duration: 0.5, delay: 1.1 },
     },
   },

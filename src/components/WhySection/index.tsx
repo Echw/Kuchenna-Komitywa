@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, Variants } from "motion/react";
 import { Image } from "@mantine/core";
 import clsx from "clsx";
 
@@ -54,7 +54,7 @@ const SECTION_CONTENT = [
   },
 ];
 
-const ANIMATIONS = {
+const ANIMATIONS: Record<string, Variants> = {
   point: {
     hidden: { scale: 0, opacity: 0 },
     visible: {

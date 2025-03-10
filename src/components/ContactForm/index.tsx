@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Button, TextInput, Textarea } from "@mantine/core";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 
 import styles from "./ContactForm.module.scss";
 import SectionTitle from "../common/SectionTitle";
@@ -21,9 +21,9 @@ const FORM_FIELDS = [
   },
 ];
 
-const ANIMATIONS = {
+const ANIMATIONS: Record<string, Variants> = {
   title: {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -34,7 +34,7 @@ const ANIMATIONS = {
     },
   },
   description: {
-    hidden: { opacity: 0, y: -10 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -45,7 +45,7 @@ const ANIMATIONS = {
     },
   },
   formField: {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
       x: 0,

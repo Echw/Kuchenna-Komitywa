@@ -1,25 +1,25 @@
 import { useRef } from "react";
 import { Image } from "@mantine/core";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, Variants } from "motion/react";
 
 import styles from "./AboutMeSection.module.scss";
 import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
-const ANIMATIONS = {
+const ANIMATIONS: Record<string, Variants> = {
   imageContainer: {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
   },
   description: {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
     },
   },
