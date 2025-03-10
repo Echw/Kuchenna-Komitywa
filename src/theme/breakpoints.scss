@@ -1,0 +1,23 @@
+$mantine-breakpoint-xs: "36em";
+$mantine-breakpoint-sm: "48em";
+$mantine-breakpoint-md: "62em";
+$mantine-breakpoint-lg: "75em";
+$mantine-breakpoint-xl: "88em";
+
+@mixin lg-down {
+  @media (max-width: $mantine-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin md-down {
+  @media (max-width: $mantine-breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin sm-down {
+  @media (max-width: $mantine-breakpoint-sm) {
+    @content;
+  }
+}
