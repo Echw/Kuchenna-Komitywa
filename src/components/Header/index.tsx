@@ -132,7 +132,7 @@ const Header = () => {
     [0, 150],
     ["0 0 0 rgba(0, 0, 0, 0)", "0 4px 20px rgba(0, 0, 0, 0.1)"],
   );
-  const logoScale = useTransform(scrollY, [0, 150], [1, 0.9]);
+  const logoScale = useTransform(scrollY, [0, 150], [1, 0.8]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -173,10 +173,10 @@ const Header = () => {
               className={styles.home_link}
               leftSection={
                 <Image
-                  src="/assets/logo.svg"
+                  src="/assets/logo-dark.svg"
                   alt="logo"
-                  width={isMobile ? 40 : 60}
-                  height={isMobile ? 40 : 60}
+                  width={isMobile ? 40 : 50}
+                  height={isMobile ? 40 : 50}
                 />
               }
             />
@@ -236,7 +236,7 @@ const Header = () => {
                 className={styles.logoContainer}
               >
                 <Image
-                  src="/assets/logo.svg"
+                  src="/assets/logo-dark.svg"
                   alt="logo"
                   width="127"
                   height="116"
