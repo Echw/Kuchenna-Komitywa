@@ -38,4 +38,14 @@ export const theme = createTheme({
       },
     },
   },
+
+  components: {
+    Burger: {
+      styles: {
+        burger: {
+          backgroundColor: "#132B13",
+        },
+      },
+    },
+  },
 });
