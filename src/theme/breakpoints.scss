@@ -21,3 +21,9 @@ $mantine-breakpoint-xl: "88em";
     @content;
   }
 }
+
+@mixin xs-down {
+  @media (max-width: $mantine-breakpoint-xs) {
+    @content;
+  }
+}

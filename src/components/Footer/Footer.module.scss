@@ -1,9 +1,11 @@
+@use "../../theme/breakpoints.scss" as *;
+
 .footer {
   display: grid;
   grid: 1fr / 1fr 1fr;
   gap: rem(97px);
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include md-down {
     grid: 1fr 1fr / 1fr;
     gap: rem(40px);
   }
@@ -16,7 +18,7 @@
   flex-direction: column;
   height: 100%;
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include md-down {
     grid-row: 2;
     align-items: flex-start;
   }
@@ -31,7 +33,7 @@
   font-family: var(--Poppins);
   width: 100%;
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include md-down {
     grid-row: 1;
   }
 }
@@ -40,12 +42,12 @@
   font-size: 6rem;
   line-height: 5rem;
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include md-down {
     font-size: 5rem;
     line-height: auto;
   }
 
-  @media (max-width: $mantine-breakpoint-xs) {
+  @include xs-down {
     font-size: 4rem;
     line-height: auto;
   }

@@ -1,15 +1,57 @@
+"use client";
+
 import { rem } from "@mantine/core";
 import { IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
+import { motion } from "motion/react";
 
 import styles from "./Footer.module.scss";
 import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
+const ANIMATIONS = {
+  icons: {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, delay: 0.1 },
+    },
+  },
+  contactText: {
+    hidden: { opacity: 0, x: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, delay: 0.3 + i * 0.2 },
+    }),
+  },
+  sectionTitle: {
+    hidden: { opacity: 0, y: -20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: 0.7 + i * 0.2 },
+    }),
+  },
+  copyright: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, delay: 1.1 },
+    },
+  },
+};
+
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footer_info}>
-        <div>
+      <motion.div
+        className={styles.footer_info}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.div variants={ANIMATIONS.icons}>
           <IconBrandInstagram
             style={{
               width: rem(50),
@@ -24,21 +66,53 @@ const Footer = () => {
               color: "var(--mantine-color-orange-6)",
             }}
           />
-        </div>
-        <TextContainer c="var(--mantine-color-mainGreen-3)">
-          +66 666 666 666
-        </TextContainer>
-        <TextContainer c="var(--mantine-color-mainGreen-3)">
-          fantomek@gmail.com
-        </TextContainer>
-      </div>
+        </motion.div>
+        <motion.div custom={0} variants={ANIMATIONS.contactText}>
+          <TextContainer c="var(--mantine-color-mainGreen-3)">
+            +66 666 666 666
+          </TextContainer>
+        </motion.div>
+        <motion.div custom={1} variants={ANIMATIONS.contactText}>
+          <TextContainer c="var(--mantine-color-mainGreen-3)">
+            fantomek@gmail.com
+          </TextContainer>
+        </motion.div>
+      </motion.div>
       <div className={styles.footer_title}>
-        <SectionTitle title="Kuchenna" color="var(--mantine-color-orange-6)" />
-        <SectionTitle title="Komitywa" color="var(--mantine-color-orange-6)" />
+        <motion.div
+          custom={0}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={ANIMATIONS.sectionTitle}
+        >
+          <SectionTitle
+            title="Kuchenna"
+            color="var(--mantine-color-orange-6)"
+          />
+        </motion.div>
+        <motion.div
+          custom={1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={ANIMATIONS.sectionTitle}
+        >
+          <SectionTitle
+            title="Komitywa"
+            color="var(--mantine-color-orange-6)"
+          />
+        </motion.div>
       </div>
-      <p className={styles.copyright}>
+      <motion.p
+        className={styles.copyright}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={ANIMATIONS.copyright}
+      >
         ©2025 Kuchenna Komitywa. All Rights Reserved.
-      </p>
+      </motion.p>
     </footer>
   );
 };
