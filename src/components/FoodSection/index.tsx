@@ -3,7 +3,13 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { Card, Image, List, ThemeIcon, rem } from "@mantine/core";
 import { IconSeedingFilled } from "@tabler/icons-react";
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  Variants,
+} from "motion/react";
 import { useMediaQuery } from "@mantine/hooks";
 
 import styles from "./FoodSection.module.scss";
@@ -21,29 +27,23 @@ interface FoodData {
   food: FoodItem[];
 }
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
+const ANIMATIONS: Record<string, Variants> = {
+  container: {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
     },
   },
-};
-
-const cardVariant = {
-  hidden: {
-    x: "100%",
-    opacity: 0,
-  },
-  show: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
+  card: {
+    hidden: { x: "100%", opacity: 0 },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 20 },
     },
   },
 };
@@ -68,7 +68,9 @@ const FoodSection = () => {
       if (!containerRef.current) return;
 
       const isMobile = window.innerWidth < 768;
-      const cards = containerRef.current.getElementsByClassName("small_card");
+      const cards = containerRef.current.querySelectorAll(
+        `.${styles.small_card}`,
+      );
       if (!cards.length) return;
 
       const firstCard = cards[0] as HTMLElement;
@@ -93,7 +95,9 @@ const FoodSection = () => {
     const handleScroll = () => {
       if (!containerRef.current) return;
 
-      const cards = containerRef.current.getElementsByClassName("small_card");
+      const cards = containerRef.current.querySelectorAll(
+        `.${styles.small_card}`,
+      );
       const viewportCenter = window.innerWidth / 2;
       const threshold = window.innerWidth < 768 ? 50 : 100;
       let centerIndex = -1;
@@ -153,14 +157,14 @@ const FoodSection = () => {
             ref={containerRef}
             className={styles.cards_section}
             style={{ x }}
-            variants={container}
+            variants={ANIMATIONS.container}
             initial="hidden"
             animate={isInView ? "show" : "hidden"}
           >
             {(foodData as FoodData).food.map((item, index) => (
               <motion.div
                 key={index}
-                variants={cardVariant}
+                variants={ANIMATIONS.card}
                 className={`${
                   centeredCards.includes(index) ? styles.centered : ""
                 }`}
@@ -175,7 +179,11 @@ const FoodSection = () => {
   );
 };
 
-const FoodCard = ({ item }: { item: FoodItem }) => {
+interface FoodCardProps {
+  item: FoodItem;
+}
+
+const FoodCard = ({ item }: FoodCardProps) => {
   return (
     <Card radius="xl" className={styles.small_card}>
       <div className={styles.image_container}>
