@@ -1,3 +1,5 @@
+@use "../../theme/breakpoints.scss" as *;
+
 .contact_form {
   display: flex;
   justify-content: center;
@@ -11,7 +13,7 @@
     text-align: left !important;
   }
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include lg-down {
     align-items: center;
     flex-direction: column;
     gap: rem(40px);
