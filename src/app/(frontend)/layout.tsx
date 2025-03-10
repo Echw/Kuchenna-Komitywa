@@ -8,6 +8,12 @@ import "./globals.scss";
 export const metadata: Metadata = {
   title: "Kuchenna Komitywa",
   description: "Kuchenna Komitywa",
+  icons: {
+    icon: {
+      url: "/assets/logo.svg",
+      href: "/assets/logo.svg",
+    },
+  },
 };
 
 export default function RootLayout({
