@@ -9,7 +9,7 @@ import styles from "./WhySection.module.scss";
 import SectionTitle from "../common/SectionTitle";
 import TextContainer from "../common/TextContainer";
 
-const images = [
+const LEAF_IMAGES = [
   { src: "/assets/why_section/leaf_1.png", alt: "leafs 1", width: 135 },
   { src: "/assets/why_section/leaf_2.png", alt: "leafs 2", width: 305 },
   { src: "/assets/why_section/leaf_3.png", alt: "leafs 3", width: 116 },
@@ -18,7 +18,7 @@ const images = [
   { src: "/assets/why_section/leaf_6.png", alt: "leafs 6", width: 380 },
 ];
 
-const texts = [
+const SECTION_CONTENT = [
   {
     title: "100% roślinne i naturalne składniki",
     description:
@@ -54,40 +54,125 @@ const texts = [
   },
 ];
 
-const pointVariants = {
-  hidden: {
-    scale: 0,
-    opacity: 0,
-  },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
+const ANIMATIONS = {
+  point: {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.2,
+      },
     },
+  },
+  text: {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.2,
+      },
+    },
+  },
+  leaf: {
+    hidden: { opacity: 0 },
+    visible: (i: number) => ({
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        delay: 0.1 * i,
+        ease: "easeOut",
+      },
+    }),
   },
 };
 
-const textVariants = {
-  hidden: {
-    opacity: 0,
-    // y: 20,
-  },
-  visible: {
-    opacity: 1,
-    // y: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.5,
-    },
-  },
-};
+const LINE_PATH =
+  "M546.61 1C554.11 57.5 625.11 78.4745 687.61 73C756.11 67 844.61 68.5188 877.61 91C918.61 118.931 940.61 180.5 940.61 246.5C940.61 262.508 929.45 344.017 847.11 363C673.61 403 417.443 369 224.61 363C198.276 365.5 148.21 358.1 158.61 308.5C171.61 246.5 230.61 322 205.11 445.5C179.61 569 227.554 592.752 257.5 613.5C327.5 662 806.715 608.867 877.61 636C958.61 667 972.909 787.175 918.11 855C857.11 930.5 262.5 858 192 909.5C121.5 961 116.5 1109.2 192 1154C267.5 1198.8 413.023 1176.35 566 1180.5C692 1183.91 898.8 1148.6 946 1231C967.5 1258 970 1396 917 1435.5C841 1492.14 689.5 1438 543 1426.5C502.797 1423.34 309.5 1377.5 168.5 1438C27.5 1498.5 17 1448 1.5 1438";
+
+const PathPoint = ({
+  cx,
+  cy,
+  index,
+}: {
+  cx: number;
+  cy: number;
+  index: number;
+}) => (
+  <motion.g
+    custom={index}
+    variants={ANIMATIONS.point}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.5, margin: "0px 0px -5%" }}
+  >
+    <circle cx={cx} cy={cy} r="20.5" fill="white" />
+    <circle cx={cx} cy={cy} r="10.5" fill="#F1753F" />
+  </motion.g>
+);
+
+const ContentBlock = ({
+  title,
+  description,
+  index,
+}: {
+  title: string;
+  description: string;
+  index: number;
+}) => (
+  <motion.div
+    custom={index}
+    className={styles.text_container}
+    variants={ANIMATIONS.text}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.5 }}
+  >
+    <TextContainer
+      variant="big"
+      isTitle
+      lh="xl"
+      c="var(--mantine-color-mainGreen-9)"
+    >
+      {title}
+    </TextContainer>
+    <TextContainer className={clsx(styles.why, styles.description)}>
+      {description}
+    </TextContainer>
+  </motion.div>
+);
+
+const LeafImage = ({
+  src,
+  alt,
+  width,
+  index,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  index: number;
+}) => (
+  <motion.div
+    custom={index}
+    variants={ANIMATIONS.leaf}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    className={styles.img}
+  >
+    <Image src={src} alt={alt} w={width} />
+  </motion.div>
+);
 
 const WhySection = () => {
   const [pathLength, setPathLength] = useState(0);
-
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 50%", "end 50%"],
@@ -108,17 +193,13 @@ const WhySection = () => {
   }, []);
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} id="why" className={styles.whySection}>
       <SectionTitle
         title="Dlaczego kuchnia roślinna?"
         color="var(--mantine-color-mainGreen-8)"
       />
-      <motion.div
-        className={styles.points}
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-      >
+
+      <div className={styles.points}>
         <svg
           className={styles.path}
           viewBox="0 0 1034 1470"
@@ -127,88 +208,41 @@ const WhySection = () => {
         >
           <motion.path
             ref={pathRef}
-            d="M546.61 1C554.11 57.5 625.11 78.4745 687.61 73C756.11 67 844.61 68.5188 877.61 91C918.61 118.931 940.61 180.5 940.61 246.5C940.61 262.508 929.45 344.017 847.11 363C673.61 403 417.443 369 224.61 363C198.276 365.5 148.21 358.1 158.61 308.5C171.61 246.5 230.61 322 205.11 445.5C179.61 569 227.554 592.752 257.5 613.5C327.5 662 806.715 608.867 877.61 636C958.61 667 972.909 787.175 918.11 855C857.11 930.5 262.5 858 192 909.5C121.5 961 116.5 1109.2 192 1154C267.5 1198.8 413.023 1176.35 566 1180.5C692 1183.91 898.8 1148.6 946 1231C967.5 1258 970 1396 917 1435.5C841 1492.14 689.5 1438 543 1426.5C502.797 1423.34 309.5 1377.5 168.5 1438C27.5 1498.5 17 1448 1.5 1438"
+            d={LINE_PATH}
             stroke="var(--mantine-color-mainGreen-11)"
             strokeWidth="4"
-            style={{
-              strokeDashoffset,
-            }}
+            style={{ strokeDashoffset }}
           />
-          {texts.map((text, index) => {
-            if (!text.circleCx || !text.circleCy) return null;
 
-            return (
-              <motion.g
-                key={index}
-                variants={pointVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{
-                  once: true,
-                  amount: 0.5,
-                  margin: "0px 0px -5%",
-                }}
-                style={{
-                  transformOrigin: "center",
-                }}
-                transition={{
-                  delay: index * 0.3,
-                  duration: 0.5,
-                }}
-              >
-                <circle
-                  cx={text.circleCx}
-                  cy={text.circleCy}
-                  r="20.5"
-                  fill="white"
-                />
-                <circle
-                  cx={text.circleCx}
-                  cy={text.circleCy}
-                  r="10.5"
-                  fill="#F1753F"
-                />
-              </motion.g>
-            );
-          })}
+          {SECTION_CONTENT.map((content, index) =>
+            content.circleCx && content.circleCy ? (
+              <PathPoint
+                key={`point-${index}`}
+                cx={content.circleCx}
+                cy={content.circleCy}
+                index={index}
+              />
+            ) : null,
+          )}
         </svg>
-        {texts.map((text, index) => {
-          const delay = index * 0.3;
-          return (
-            <motion.div
-              key={index}
-              className={styles.text_container}
-              variants={textVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{
-                delay: delay,
-                duration: 0.5,
-              }}
-            >
-              <TextContainer
-                variant="big"
-                isTitle
-                lh="xl"
-                c="var(--mantine-color-mainGreen-9)"
-              >
-                {text.title}
-              </TextContainer>
-              <TextContainer className={clsx(styles.why, styles.description)}>
-                {text.description}
-              </TextContainer>
-            </motion.div>
-          );
-        })}
-      </motion.div>
-      {images.map((image, index) => (
-        <Image
+
+        {SECTION_CONTENT.map((content, index) => (
+          <ContentBlock
+            key={`content-${index}`}
+            title={content.title}
+            description={content.description}
+            index={index}
+          />
+        ))}
+      </div>
+
+      {LEAF_IMAGES.map((image, index) => (
+        <LeafImage
           key={`leaf-${index}`}
           src={image.src}
           alt={image.alt}
-          w={image.width}
-          className={styles.img}
+          width={image.width}
+          index={index}
         />
       ))}
     </div>

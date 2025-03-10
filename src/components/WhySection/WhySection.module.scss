@@ -1,26 +1,33 @@
-.points {
-  height: 100%;
+@use "../../theme/breakpoints.scss" as *;
+
+.whySection {
   position: relative;
+  overflow: hidden;
+}
+
+.points {
+  position: relative;
+  height: 100%;
   max-width: 600px;
-  padding-bottom: rem(380px);
+  margin: 0 auto;
   padding-top: rem(160px);
+  padding-bottom: rem(380px);
+  display: grid;
   grid-template-columns: auto;
   grid-template-rows: repeat(5, 1fr);
-  display: grid;
   grid-gap: 5rem;
-  margin: 0 auto;
 
-  @media (max-width: $mantine-breakpoint-lg) {
+  @include lg-down {
     padding-bottom: rem(450px);
   }
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include md-down {
     grid-template-rows: none;
     padding-top: rem(100px);
     grid-gap: 3rem;
   }
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  @include sm-down {
     padding-top: rem(60px);
     padding-bottom: rem(100px);
   }
@@ -33,7 +40,7 @@
   transform: translate(-56%, -9%);
   left: 50%;
 
-  @media (max-width: $mantine-breakpoint-md) {
+  @include md-down {
     display: none;
   }
 }
@@ -47,7 +54,7 @@
     justify-content: center;
     text-align: end;
 
-    @media (max-width: $mantine-breakpoint-md) {
+    @include md-down {
       text-align: left;
     }
   }
@@ -61,66 +68,73 @@
 .img {
   position: absolute;
 
-  @media (max-width: $mantine-breakpoint-lg) {
+  @include lg-down {
     display: none;
   }
 
-  &:nth-of-type(1) {
-    left: 80%;
+  // Leaf 1
+  &:nth-of-type(3) {
+    right: 4%;
     top: 15%;
     transform: rotate(-25deg);
 
-    @media (max-width: $mantine-breakpoint-lg) {
+    @include lg-down {
       display: block;
-      top: 12%;
+      right: 1%;
+      top: 5%;
     }
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @include sm-down {
       display: none;
     }
   }
 
-  &:nth-of-type(2) {
-    left: 1%;
-    top: 14%;
+  // Leaf 2
+  &:nth-of-type(4) {
+    left: -2%;
+    top: 6%;
     transform: rotate(145deg);
   }
 
-  &:nth-of-type(3) {
-    right: 10%;
-    top: 41%;
-  }
-
-  &:nth-of-type(4) {
-    right: 1%;
-    top: 35%;
-  }
-
+  // Leaf 3
   &:nth-of-type(5) {
-    left: 3%;
-    top: 44%;
+    right: 10%;
+    top: 60%;
   }
 
+  // Leaf 4
   &:nth-of-type(6) {
+    right: 1%;
+    top: 53%;
+  }
+
+  // Leaf 5
+  &:nth-of-type(7) {
+    left: 3%;
+    top: 38%;
+  }
+
+  // Leaf 6
+  &:nth-of-type(8) {
     right: 4%;
     bottom: 4%;
     left: auto;
     transform: rotate(118deg);
 
-    @media (max-width: $mantine-breakpoint-lg) {
+    @include lg-down {
       display: block;
       margin-left: auto;
       margin-right: auto;
       left: 0;
       right: 0;
-      bottom: 3%;
+      bottom: -10%;
     }
 
-    @media (max-width: $mantine-breakpoint-md) {
-      bottom: 6%;
+    @include md-down {
+      bottom: -12%;
     }
 
-    @media (max-width: $mantine-breakpoint-sm) {
+    @include sm-down {
       display: none;
     }
   }
