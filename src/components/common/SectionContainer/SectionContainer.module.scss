@@ -6,13 +6,6 @@
   margin-bottom: -3.25rem;
   border-radius: var(--mantine-radius-xl);
   position: relative;
-
-  // Shit does not allow to have vertical scrolling effect
-  // overflow: hidden;
-
-  // Overlapping sections with sticky positioning
-  // position: sticky;
-  // top: 0;
 }
 
 .container {
@@ -46,4 +39,11 @@
 
 .hero {
   overflow: hidden;
+}
+
+.foods {
+  .container {
+    max-width: none;
+    padding: rem(160px) 0 1rem;
+  }
 }

@@ -105,7 +105,7 @@ const FoodSection = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -containerWidth + (isMobile ? 100 : 350)],
+    [isMobile ? 0 : 300, -containerWidth + (isMobile ? 100 : 250)],
   );
 
   return (
@@ -147,7 +147,7 @@ interface FoodCardProps {
 const FoodCard = ({ item }: FoodCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const isVisible = useInView(cardRef, {
-    amount: 0.9,
+    amount: 0.8,
     once: true,
   });
 

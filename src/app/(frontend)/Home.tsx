@@ -41,13 +41,14 @@ export default function Home({ subtitle }: HomeProps) {
         </SectionContainer>
         <SectionContainer
           id="foods"
+          className={sectionContainerStyles.foods}
           backgroundColor="var(--mantine-color-mainGreen-10)"
         >
           <FoodSection />
         </SectionContainer>
         <SectionContainer
-          className={sectionContainerStyles.gallery}
           id="gallery"
+          className={sectionContainerStyles.gallery}
           backgroundColor="var(--mantine-color-mainGreen-8)"
         >
           <Gallery />
@@ -57,8 +58,8 @@ export default function Home({ subtitle }: HomeProps) {
         </SectionContainer>
       </main>
       <SectionContainer
-        className={sectionContainerStyles.footer}
         id="footer"
+        className={sectionContainerStyles.footer}
         backgroundColor="var(--mantine-color-mainGreen-9)"
       >
         <Footer />
