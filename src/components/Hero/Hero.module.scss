@@ -72,6 +72,7 @@
   }
 
   @media (max-width: $mantine-breakpoint-xs) {
+    max-width: 90%;
     text-align: center;
   }
 }
@@ -129,7 +130,7 @@
   top: auto;
   left: auto;
   right: 0%;
-  bottom: -10%;
+  bottom: -5%;
   width: 100%;
   aspect-ratio: 1.7/1;
   filter: brightness(0.8) contrast(126%) saturate(200%);
@@ -137,7 +138,7 @@
   margin: 0 auto;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    width: 140%;
+    width: 150%;
     bottom: 0%;
   }
 }
@@ -210,17 +211,13 @@
 }
 
 .scroll_icon {
-  bottom: 5%;
+  padding-top: 4rem;
   width: 120px;
-  position: absolute;
-  display: flow-root;
   box-sizing: border-box;
   color: #fff;
 
   @media (max-width: $mantine-breakpoint-sm) {
-    position: initial;
     padding-top: 2rem;
-    bottom: 19% !important;
     width: 100px;
   }
 }

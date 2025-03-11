@@ -38,11 +38,11 @@ const ANIMATIONS: Record<string, Variants> = {
   scrollIcon: {
     hidden: {
       opacity: 0,
-      bottom: "10%",
+      y: 20,
     },
     animate: {
       opacity: 1,
-      bottom: "5%",
+      y: 0,
       transition: {
         duration: 0.5,
         delay: 1.5,

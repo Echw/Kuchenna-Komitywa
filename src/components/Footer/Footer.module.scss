@@ -20,7 +20,7 @@
 
   @include md-down {
     grid-row: 2;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 
@@ -35,6 +35,8 @@
 
   @include md-down {
     grid-row: 1;
+    align-items: center;
+    max-width: none;
   }
 }
 
