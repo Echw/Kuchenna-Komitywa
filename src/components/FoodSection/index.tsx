@@ -67,7 +67,6 @@ const FoodSection = () => {
     const calculateDimensions = () => {
       if (!containerRef.current) return;
 
-      const isMobile = window.innerWidth < 768;
       const cards = containerRef.current.querySelectorAll(
         `.${styles.small_card}`,
       );
@@ -76,9 +75,11 @@ const FoodSection = () => {
       const firstCard = cards[0] as HTMLElement;
       const cardWidth = firstCard.offsetWidth;
 
-      const containerStyles = window.getComputedStyle(containerRef.current);
-      const gapString = containerStyles.gap;
-      const gap = parseInt(gapString, 10);
+      const containerComputedStyles = window.getComputedStyle(
+        containerRef.current,
+      );
+      const gapString = containerComputedStyles.gap;
+      const gap = parseInt(gapString, 10) || 0;
 
       const viewportWidth = window.innerWidth;
       const centerOffset = (viewportWidth - cardWidth) / 2;
@@ -99,7 +100,7 @@ const FoodSection = () => {
         `.${styles.small_card}`,
       );
       const viewportCenter = window.innerWidth / 2;
-      const threshold = window.innerWidth < 768 ? 50 : 100;
+      const threshold = isMobile ? 50 : 100;
       let centerIndex = -1;
 
       Array.from(cards).forEach((card, index) => {
@@ -124,11 +125,12 @@ const FoodSection = () => {
     calculateDimensions();
     window.addEventListener("resize", calculateDimensions);
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("resize", calculateDimensions);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
