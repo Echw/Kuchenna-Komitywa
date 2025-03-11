@@ -11,6 +11,7 @@ import {
   Variants,
 } from "motion/react";
 import { useMediaQuery } from "@mantine/hooks";
+import clsx from "clsx";
 
 import styles from "./FoodSection.module.scss";
 import foodData from "../../data/food-data.json";
@@ -38,7 +39,7 @@ const ANIMATIONS: Record<string, Variants> = {
       },
     },
   },
-  card: {
+  cardWrapper: {
     hidden: { x: "100%", opacity: 0 },
     show: {
       x: 0,
@@ -51,7 +52,6 @@ const ANIMATIONS: Record<string, Variants> = {
 const FoodSection = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const [centeredCards, setCenteredCards] = useState<number[]>([]);
   const [sectionHeight, setSectionHeight] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
 
@@ -60,7 +60,7 @@ const FoodSection = () => {
 
   const isInView = useInView(containerRef, {
     once: true,
-    margin: isMobile ? "-100px" : "-200px",
+    margin: "-20%",
   });
 
   useLayoutEffect(() => {
@@ -74,61 +74,26 @@ const FoodSection = () => {
 
       const firstCard = cards[0] as HTMLElement;
       const cardWidth = firstCard.offsetWidth;
-
       const containerComputedStyles = window.getComputedStyle(
         containerRef.current,
       );
-      const gapString = containerComputedStyles.gap;
-      const gap = parseInt(gapString, 10) || 0;
-
+      const gap = parseInt(containerComputedStyles.gap, 10) || 0;
       const viewportWidth = window.innerWidth;
       const centerOffset = (viewportWidth - cardWidth) / 2;
       const totalCardsWidth = (cardWidth + gap) * cards.length - gap;
       const scrollDistance =
         totalCardsWidth - (isMobile ? viewportWidth / 2 : centerOffset);
 
-      const calculatedWidth = Math.max(0, scrollDistance);
-
-      setContainerWidth(calculatedWidth);
-      setSectionHeight(calculatedWidth);
-    };
-
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const cards = containerRef.current.querySelectorAll(
-        `.${styles.small_card}`,
-      );
-      const viewportCenter = window.innerWidth / 2;
-      const threshold = isMobile ? 50 : 100;
-      let centerIndex = -1;
-
-      Array.from(cards).forEach((card, index) => {
-        const rect = (card as HTMLElement).getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(cardCenter - viewportCenter);
-
-        if (distance < threshold) {
-          centerIndex = index;
-        }
-      });
-
-      if (centerIndex !== -1) {
-        const newCenteredCards = Array.from(
-          { length: centerIndex + 1 },
-          (_, i) => i,
-        );
-        setCenteredCards(newCenteredCards);
-      }
+      const calculatedDistance = Math.max(0, scrollDistance);
+      setContainerWidth(calculatedDistance);
+      setSectionHeight(calculatedDistance);
     };
 
     calculateDimensions();
     window.addEventListener("resize", calculateDimensions);
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("resize", calculateDimensions);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, [isMobile]);
 
@@ -164,13 +129,7 @@ const FoodSection = () => {
             animate={isInView ? "show" : "hidden"}
           >
             {(foodData as FoodData).food.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={ANIMATIONS.card}
-                className={`${
-                  centeredCards.includes(index) ? styles.centered : ""
-                }`}
-              >
+              <motion.div key={index} variants={ANIMATIONS.cardWrapper}>
                 <FoodCard item={item} />
               </motion.div>
             ))}
@@ -186,45 +145,49 @@ interface FoodCardProps {
 }
 
 const FoodCard = ({ item }: FoodCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isVisible = useInView(cardRef, {
+    amount: 0.9,
+    once: true,
+  });
+
   return (
-    <Card radius="xl" className={styles.small_card}>
+    <Card
+      radius="xl"
+      className={clsx(styles.small_card, isVisible ? styles.visible : "")}
+      ref={cardRef}
+    >
       <div className={styles.image_container}>
-        <Image
-          src={item.img}
-          alt={item.name.toLowerCase()}
-          className={styles.small_card_img}
-        />
+        <Image src={item.img} alt={item.name.toLowerCase()} />
       </div>
-      <TextContainer
-        variant="big"
-        isTitle
-        className={styles.small_card_title}
-        c="var(--mantine-color-orange-6)"
-      >
-        {item.name}
-      </TextContainer>
-      <List
-        className={styles.food_list}
-        spacing="xs"
-        size="sm"
-        center
-        icon={
-          <ThemeIcon
-            c="var(--mantine-color-mainGreen-7)"
-            bg="transparent"
-            size={24}
-            radius="xl"
-          >
-            <IconSeedingFilled style={{ width: rem(16), height: rem(16) }} />
-          </ThemeIcon>
-        }
-      >
-        {item.types.map((type, index) => (
-          <List.Item key={index}>
-            <TextContainer c="black">{type}</TextContainer>
-          </List.Item>
-        ))}
-      </List>
+      <div className={styles.small_card_title}>
+        <TextContainer variant="big" isTitle c="var(--mantine-color-orange-6)">
+          {item.name}
+        </TextContainer>
+      </div>
+      <div className={styles.food_list}>
+        <List
+          spacing="xs"
+          size="sm"
+          center
+          icon={
+            <ThemeIcon
+              c="var(--mantine-color-mainGreen-7)"
+              bg="transparent"
+              size={24}
+              radius="xl"
+            >
+              <IconSeedingFilled style={{ width: rem(16), height: rem(16) }} />
+            </ThemeIcon>
+          }
+        >
+          {item.types.map((type, index) => (
+            <List.Item key={index}>
+              <TextContainer c="black">{type}</TextContainer>
+            </List.Item>
+          ))}
+        </List>
+      </div>
     </Card>
   );
 };
