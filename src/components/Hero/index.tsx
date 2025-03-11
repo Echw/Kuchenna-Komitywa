@@ -38,7 +38,7 @@ const ANIMATIONS: Record<string, Variants> = {
   scrollIcon: {
     hidden: {
       opacity: 0,
-      bottom: "0%",
+      bottom: "10%",
     },
     animate: {
       opacity: 1,
@@ -122,11 +122,7 @@ const Hero = ({ subtitle }: HeroProps) => {
           </TextContainer>
         </motion.div>
 
-        <motion.div
-          variants={ANIMATIONS.scrollIcon}
-          className={styles.scroll_icon}
-          style={{ position: "absolute", bottom: "0%" }}
-        >
+        <motion.div variants={ANIMATIONS.scrollIcon}>
           <ScrollIcon />
         </motion.div>
       </Box>

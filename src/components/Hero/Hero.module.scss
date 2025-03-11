@@ -218,6 +218,8 @@
   color: #fff;
 
   @media (max-width: $mantine-breakpoint-sm) {
+    position: initial;
+    padding-top: 2rem;
     bottom: 19% !important;
     width: 100px;
   }
