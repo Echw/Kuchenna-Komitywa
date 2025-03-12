@@ -77,22 +77,12 @@ const AboutMeSection = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <TextContainer c="white" pt="xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco.
-          </TextContainer>
-        </motion.div>
-
-        <motion.div
-          custom={0.7}
-          variants={ANIMATIONS.text}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <TextContainer c="white" pt="md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Tomek - naczelny Fantomek kuchni roślinnej! 🌱👨‍🍳 Z pasją i
+            kreatywnością przygotowuję przepyszne, roślinne obiady, które
+            zachwycają smakiem i aromatem. Uwielbiam eksperymentować z
+            przyprawami, sezonowymi składnikami i nietypowymi połączeniami,
+            tworząc dania, które udowadniają, że kuchnia roślinna to czysta
+            magia na talerzu! 🍽️✨
           </TextContainer>
         </motion.div>
       </motion.div>
