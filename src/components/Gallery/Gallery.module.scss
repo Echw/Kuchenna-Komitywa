@@ -1,3 +1,5 @@
+@use "../../theme/breakpoints.scss" as *;
+
 .gallery_container {
   position: relative;
   overflow: visible;
@@ -56,7 +58,7 @@
   width: 100%;
 }
 
-@media (max-width: $mantine-breakpoint-md) {
+@include md-down {
   .base {
     flex-direction: column;
   }

@@ -1,3 +1,5 @@
+@use "../../../theme/breakpoints.scss" as *;
+
 .box {
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@
   width: 100%;
   padding: rem(160px) 2rem 1rem;
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  @include sm-down {
     padding: 5rem 2rem 1rem;
   }
 }

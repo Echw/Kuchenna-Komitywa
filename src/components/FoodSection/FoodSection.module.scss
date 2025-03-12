@@ -1,3 +1,5 @@
+@use "../../theme/breakpoints.scss" as *;
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -7,7 +9,7 @@
   position: sticky;
   top: 10rem;
 
-  @media (max-width: 768px) {
+  @include md-down {
     top: 5rem;
   }
 }
@@ -24,14 +26,14 @@
   width: max-content;
   will-change: transform;
 
-  @media (max-width: 1024px) {
+  @include lg-down {
     gap: rem(60px);
     padding-left: rem(100px);
     padding-right: rem(100px);
     height: calc(100vh - 12rem);
   }
 
-  @media (max-width: 768px) {
+  @include md-down {
     gap: rem(40px);
     padding-left: rem(50px);
     padding-right: rem(50px);
